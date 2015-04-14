@@ -1,0 +1,386 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"t",
+				"type	Attr"
+			],
+			[
+				"leit",
+				"leituraSync"
+			],
+			[
+				"le",
+				"leituraAsync"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"strto",
+				"strtoupper"
+			],
+			[
+				"q",
+				"query3"
+			],
+			[
+				"m",
+				"mysqli"
+			],
+			[
+				"tex",
+				"texto"
+			],
+			[
+				"in",
+				"input"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"ba",
+				"background-color"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Dashboard/index.php",
+			"settings":
+			{
+				"buffer_size": 7,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Dashboard/libs/conf.php",
+			"settings":
+			{
+				"buffer_size": 340,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "<?php\n	require_once(\"conf.php\");\n\n	$mysql = new mysqli($host, $user, $pass, $db);\n\n	if()",
+			"file": "Dashboard/libs/database.conf.php",
+			"file_size": 81,
+			"file_write_time": 130734514401954200,
+			"settings":
+			{
+				"buffer_size": 88,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 35.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Afonso/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Afonso/Documents/gg/MAIN.txt",
+		"/C/Users/Afonso/Documents/node/ntalk/views/home/index.ejs",
+		"/C/Users/Afonso/Documents/node/ntalk/routes/contatos.js",
+		"/C/Users/Afonso/Documents/node/ntalk/controllers/contatos.js",
+		"/C/Users/Afonso/Documents/node/ntalk/views/contatos/index.ejs",
+		"/C/Users/Afonso/Documents/node/ntalk/routes/home.js",
+		"/C/Users/Afonso/Documents/node/ntalk/controllers/home.js",
+		"/C/Users/Afonso/Documents/node/ntalk/app.js",
+		"/C/Users/Afonso/Documents/node/ntalk/models/usuario.js",
+		"/C/Users/Afonso/Documents/node/ntalk/views/exit.ejs",
+		"/C/Users/Afonso/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Afonso/Documents/node/ntalk/ntalk.sublime-project",
+		"/C/Users/Afonso/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Afonso/AppData/Roaming/Sublime Text 3/Packages/User/HTML.sublime-settings",
+		"/C/Users/Afonso/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript.sublime-settings",
+		"/C/Users/Afonso/Documents/node/ntalk/views/index.ejs",
+		"/C/Users/Afonso/Documents/node/ntalk/views/home",
+		"/C/Users/Afonso/Documents/node/leitura_async.js",
+		"/C/Users/Afonso/Documents/node/leitura_sync.js",
+		"/C/Users/Afonso/Documents/node/processamento.js",
+		"/C/Users/Afonso/Documents/node/callback_hell.js",
+		"/C/Users/Afonso/Documents/node/text_sync.js",
+		"/C/Users/Afonso/Documents/node/text_async.js",
+		"/C/Users/Afonso/Documents/node/site_pessoal.js",
+		"/C/Users/Afonso/Documents/node/desafio1.js",
+		"/C/Users/Afonso/Documents/node/contato.html",
+		"/C/Users/Afonso/Documents/node/erro.html",
+		"/C/Users/Afonso/Documents/node/index.html",
+		"/C/Users/Afonso/Documents/node/artigos.html",
+		"/C/Users/Afonso/Documents/node/contato",
+		"/C/Users/Afonso/Documents/node/url_server.js",
+		"/C/Users/Afonso/Documents/node/hello_server3.js",
+		"/C/Users/Afonso/Documents/node/hello.js",
+		"/C/Users/Afonso/Documents/node/human.js",
+		"/C/Users/Afonso/Documents/node/app.js",
+		"/C/Users/Afonso/Documents/node/hello_server.js",
+		"/C/Users/Afonso/Documents/app/v_hora.php",
+		"/C/Users/Afonso/Documents/app/cad2.php",
+		"/C/Users/Afonso/Documents/app/i_hora.php",
+		"/C/Users/Afonso/Documents/app/v_compro.php",
+		"/C/Users/Afonso/Documents/app/v_nhora.php",
+		"/C/Users/Afonso/Documents/app/cad3.php",
+		"/C/Users/Afonso/Documents/app/v_posts2.php",
+		"/C/Users/Afonso/Documents/SH/gui/editar_template.php",
+		"/C/Users/Afonso/Documents/SH/gui/art.php",
+		"/C/Users/Afonso/Documents/SH/gui/template_conta.php",
+		"/C/Users/Afonso/Documents/SH/gui/template_editar_senha.php",
+		"/C/Users/Afonso/Documents/SH/gui/participar.php",
+		"/C/Users/Afonso/Documents/SH/gui/template_galeria.php",
+		"/C/Users/Afonso/Documents/SH/gui/menu_visitante.php",
+		"/C/Users/Afonso/Documents/SH/gui/template_topoLogado.php",
+		"/C/Users/Afonso/Documents/SH/gui/index.css",
+		"/C/Users/Afonso/Documents/SH/gui/conta.php",
+		"/C/Users/Afonso/Documents/SH/art.php",
+		"/C/Users/Afonso/Documents/SH/index.php",
+		"/C/Users/Afonso/Documents/SH/banco.php",
+		"/C/Users/Afonso/Documents/SH/conta.php",
+		"/C/Users/Afonso/Documents/SH/template_conta.php",
+		"/C/Users/Afonso/Documents/SH/template_galeria.php",
+		"/C/Users/Afonso/Documents/SH/admin.php"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"leituraAsync",
+			"`",
+			"author-image",
+			"<li",
+			"searchLabel",
+			"about",
+			"buscar_artes_artista_limitadas",
+			"”",
+			"“"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"\""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Dashboard/index.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7,
+								7
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Dashboard/libs/conf.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 340,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								340,
+								340
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Dashboard/libs/database.conf.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 88,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								87,
+								87
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "test-game.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
