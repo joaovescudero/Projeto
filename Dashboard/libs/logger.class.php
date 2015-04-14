@@ -9,20 +9,17 @@
 	//Create class Logger
 	class Logger {
 
-		//Set the var mysql
-		private $mysql = $mysql;
-
 		//Set the function log
-		public function log($type, $date, $time){
+		public function log($type, $date){
 
 			//Logs query
-			$query = "INSERT INTO logs_dash(type, date, time) VALUES ('$type', '$date', '$time')";
+			$query = "INSERT INTO logs_dash(type, date) VALUES ('$type', '$date')";
 			//Running the query
-			$sql_run = $this->mysql->query($query);
+			$sql_run = $mysql->query($query);
 
 			//Checking the run
 			if(!$sql_run){
-				
+
 				//If have an error, return false
 				return false;
 				exit;

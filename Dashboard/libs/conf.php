@@ -17,4 +17,4 @@
 	//Password
 	$pass = "";
 	//Database
-	$db = "game";
+	$db = "dashboard";
