@@ -1,4 +1,7 @@
 <?php
+	//Database archive
+	//Create by: Joao Escudero <joaovescudero@gmail.com>
+
 	//Require configuration file
 	require_once("conf.php");
 
