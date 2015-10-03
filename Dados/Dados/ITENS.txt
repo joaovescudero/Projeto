@@ -1,0 +1,20 @@
+//weapons
+//id, name, class, type, slot, str, vit, dex, agi, int, luk, effect
+10001, supreme poisoned dagger, shadow chaser, worldwide, weapon, 20, 10, 40, 40, 0, 30, 30% poison; 60% agility; 60% dexterity;
+10002, double hit dagger, shadow chase, worldwide, weapon, 5, 10, 50, 60, 0, 15, 80% double hit; 80% chance of critical; 120% critical damage;
+10003, holy blessed shield ,royal guard, worldwide, weapon, 35, 80, 15, 10, 0, 0, 70% block chance; 30% reflect; 80% demoniac damage reduction; 60% damage reduction;
+10004, holy blessed sword, royal guard, worldwide, weapon, 60, 45, 5, 30, 0, 0, 20% damage reduction; 50% hit chance; 60% vitality;
+10005, warlock's supreme staff, warlock, worldwide, weapon, 0, 50, 10, 0, 80, 0, 40% double hit; 40% damage reduction; 60% magic critical; 120% magic critical damage;
+10006, warlock's supreme book, warlock, worldwide, weapon, 0, 70, 10, 0, 60, 0, 60% magic damage reduction, 40% intelligence, 40% vitality;
+10007, god's staff, arch bishop, worldwide, weapon, 0, 60, 40, 0, 40, 0, 120% heal increase; 40% cooldown reduction; 80% demoniac damage reduction; 40% damage reduction;
+10008, god's shield, arch bishop, worldwide, weapon, 0, 90, 50, 0, 0, 0, 40% damage reduction; 40% cooldown reduction; 80% vitality; 65% magic damage reduction;
+
+//helmets
+//id, name, class, type, slot, str, vit, dex, agi, int, luk, effect
+20001, ultimate evade helmet, shadow chaser, worldwide, helmet, 5, 5, 30, 15, 0, 5, 30% dodge chance; 10% agility;
+20002, defense supreme helmet, royal guard, worldwide, helmet, 10, 50, 0, 0, 0, 0, 30% damage reduction; 30% magic damage reduction;
+20003, warlock's powerful helmet, warlock, worldwide, helmet, 0, 20, 10, 0, 30, 0, 10% cooldown reduction; 10% magic damage;
+20004, angelic cap, arch bishop, worldwide, helmet, 0, 40, 20, 0, 0, 0, 10% all damage reduction, 10% HP
+
+//chestplate
+//id, name, class, type, slot, str, vit, dex, agi, int, luk, effect

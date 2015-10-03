@@ -2,6 +2,9 @@
 	//Main class archive
 	//Create by: Joao Escudero <joaovescudero@gmail.com>
 
+	//Initializing session
+	session_start();
+
 	//Setting local
 	date_default_timezone_set('America/Sao_Paulo');
 	
@@ -36,28 +39,35 @@
 				exit;
 			}
 
+			//encrypting password
 			$e_pass = $this->encrypt($pass);
 
-			$query = "SELECT * FROM user_dash WHERE u_user = '$user' AND u_pass = '$e_pass'";
+			//verifying dates
+			$query = "SELECT * FROM user_dash WHERE u_user = '$user' AND u_pass = '$pass'";
 			$sql_run = $this->mysql->query($query);
 
+			//verifying if have any mysql errors
 			if(!$sql_run){
 				$this->log("Mysql error", $this->date);
 				return 0;
 				exit;
 			}
 
+			//counting rows
 			$f_array = $sql_run->fetch_array(MYSQLI_NUM);
 			$count = count($f_array);
+			print_r($f_array);
 
+			//if dates are incorrect
 			if($count == 0){
 				$this->log("Incorrect User/Password", $this->date);
 				return 1;
 				exit;
 			}
 
+			//if dates are correct
 			$this->log("Login successful, User: $user", $this->date);
-			return 2;
+			
 		}
 	}
 
