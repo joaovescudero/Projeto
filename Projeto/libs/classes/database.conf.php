@@ -1,6 +1,7 @@
 <?php
 	//Database archive
 	//Create by: Joao Escudero <joaovescudero@gmail.com>
+	//Git: http://github.com/joaovescudero/Projeto
 
 	//Require configuration file
 	require_once("conf.min.php");
