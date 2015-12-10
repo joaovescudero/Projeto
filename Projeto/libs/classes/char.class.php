@@ -1,19 +1,36 @@
 <?php
-	//Main class archive
+	//Char class archive
 	//Create by: Joao Escudero <joaovescudero@gmail.com>
 
 	//Initializing session
 	//session_start();
 	
 	//Require configuration, database and logger file
-	require_once("main.class.php");
-	require_once("teste.php");
+	require_once("effects.class.php");
 
 	//starting char class
-	class char extends Logger {
+	class char extends effects {
 		public $char = null;
 		public $mysql = null;
 		public $date = null;
+		public $str = null;
+		public $vit = null;
+		public $dex = null;
+		public $agi = null;
+		public $int = null;
+		public $luk = null;
+		public $atk = null;
+		public $magic_atk = null;
+		public $block = null;
+		public $HP = null;
+		public $dam_red = null;
+		public $cd_red = null;
+		public $hit = null;
+		public $mag_crit = null;
+		public $mag_crit_dam = null;
+		public $crit = null;
+		public $crit_dam = null;
+		public $dodge = null;
 
 		//get the char session
 		public function __construct($char, $mysql){
@@ -309,6 +326,7 @@
 		}
 
 		public function giveItem($item_id){
+			//setting the variables
 			$id_acc = $this->char[8];
 
 			//getting bank space
@@ -332,11 +350,126 @@
 
 		}
 
-		public function status($status_id){
-			
+		public function getStatus(){
+			if(empty($_SESSION["stats"])){
+				//setting the variables
+				$this->str = null;
+				$this->vit = null;
+				$this->dex = null;
+				$this->agi = null;
+				$this->int = null;
+				$this->luk = null;
+			}/*else{
+				$this->str = $_SESSION["stats"][1];
+				$this->vit = $_SESSION["stats"][2];
+				$this->dex = $_SESSION["stats"][3];
+				$this->agi = $_SESSION["stats"][4];
+				$this->int = $_SESSION["stats"][5];
+				$this->luk = $_SESSION["stats"][6];
+				$this->atk = $_SESSION["stats"][24];
+				$this->magic_atk = $_SESSION["stats"][25];
+				$this->block = $_SESSION["stats"][11];
+				$this->HP = $_SESSION["stats"][23];
+				$this->dam_red = $_SESSION["stats"][14];
+				$this->cd_red = $_SESSION["stats"][20];
+				$this->hit = $_SESSION["stats"][15];
+				$this->mag_crit = $_SESSION["stats"][16];
+				$this->mag_crit_dam = $_SESSION["stats"][17];
+				$this->crit = $_SESSION["stats"][9];
+				$this->crit_dam = $_SESSION["stats"][10];
+				$this->dodge = $_SESSION["stats"][21];
+			}*/
+		}
+
+		public function status(){
+			$id = $this->char[0];
+			//$this->getStatus();
+			$str = null;
+			$vit = null;
+			$dex = null;
+			$agi = null;
+			$int = null;
+			$luk = null;
+			$atk = null;
+
+			//getting equipment
+			$sql = "SELECT * FROM equipment_proj WHERE equip_char_id = '$id'";
+			$run = $this->mysql->query($sql);
+			$f_array = $run->fetch_array(MYSQLI_NUM);
+			$_SESSION["itens"] = $f_array;
+
+			for($i=0;$i<=7;$i++){
+				$item_id = $f_array[$i];
+				if($item_id != ""){
+					$item_sql = "SELECT * FROM item_proj WHERE item_id = '$item_id'";
+					$item_run = $this->mysql->query($item_sql);
+					$f_item_array = $item_run->fetch_array(MYSQLI_NUM);
+					if((count($f_item_array)) != 0){
+						$str = $str + $f_item_array[6];
+						$vit = $vit + $f_item_array[7];
+						$dex = $dex + $f_item_array[8];
+						$agi = $agi + $f_item_array[9];
+						$int = $int + $f_item_array[10];
+						$luk = $luk + $f_item_array[11];
+					}
+				}
+			}
+
+			$status = array('1' => $str, '2' => $vit, '3' => $dex, '4' => $agi, '5' => $int, '6' => $luk, '' => $, '' => $, '' => $, '' => $z);
+
+			$sts = $this->runes($status);
+
+			$str = $sts[1];
+			$vit = $sts[2];
+			$dex = $sts[3];
+			$agi = $sts[4];
+			$int = $sts[5];
+			$luk = $sts[6];
+
+			$atk = $str * 20;
+			$magic_atk = $int * 20;
+			$block = ((int)$str/5) * 0.5;
+			$HP = $vit * 40;
+			$all_dam_red = 0;
+			$dam_red = ((int)$vit/5) * 0.1;
+			$cd_red = $dex * 0.1;
+			$hit = ((int)$dex/5) * 0.5;
+			$mag_crit = ((int)$int/5) * 0.5;
+			$mag_crit_dam = ((int)$int/10);
+			$crit = ((int)$luk/5) * 0.5;
+			$crit_dam = ((int)$agi/10);
+			$dodge = $agi * 0.2;
+			$posion = 0;
+			$double_hit = 0;
+			$reflect = 0;
+			$dem_dam_red = 0;
+			$mag_dam_red = 0;
+			$heal_inc = 0;
+
+			$stats = array('1' => $str, '2' => $vit, '3' => $dex, '4' => $agi, '5' => $int, '6' => $luk, '24' => $atk
+						   , '25' => $magic_atk, '11' => $block, '23' => $HP, '14' => $dam_red, '20' => $cd_red, '15' => $hit
+						   , '16' => $mag_crit, '17' => $mag_crit_dam, '9' => $crit, '10' => $crit_dam, '21' => $dodge
+						   , '22' => $all_dam_red, '7' => $posion, '8' => $double_hit, '12' => $reflect, '13' => $dem_dam_red
+						   , '18' => $mag_dam_red, '19' => $heal_inc);
+			ksort($stats);
+			$_SESSION["stats"] = $stats;
+			//$this->runes();
+			//return $str."<br>".$vit."<br>".$dex."<br>".$agi."<br>".$int."<br>".$luk."<br>".$HP;
+		}
+
+		public function runes($status){
+			$runes = array('1' => 9, '2' => 9, '3' => 9, '4' => 9, '5' => 0, '6' => 0);
+			$sts = $this->runesEffect($runes, $status);
+			return $sts;
 		}
 	}
+
 	$c = new char($_SESSION["char"], $mysql);
-	print_r($c->char);
-	$c->reborn();
+	print_r($c->char);echo "<br>";
+	$c->status();
+	print_r($_SESSION["itens"]);echo "<br>";
+	print_r($_SESSION["stats"]);echo "<br>";
+	$c->itemEffect($_SESSION["itens"] ,$_SESSION["stats"]);
+	ksort($_SESSION["stats"]);
+	print_r($_SESSION["stats"]);echo "<br>";
 ?>

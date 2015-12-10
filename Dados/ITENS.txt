@@ -1,38 +1,57 @@
 //weapons
-//id, name, class, type, slot, str, vit, dex, agi, int, luk, effect
-10001, supreme poisoned dagger, shadow chaser, worldwide, weapon, 20, 10, 40, 40, 0, 30, 30% poison; 60% agility; 60% dexterity;
-10002, double hit dagger, shadow chase, worldwide, weapon, 5, 10, 50, 60, 0, 15, 80% double hit; 80% chance of critical; 120% critical damage;
-10003, holy blessed shield ,royal guard, worldwide, weapon, 35, 80, 15, 10, 0, 0, 70% block chance; 30% reflect; 80% demoniac damage reduction; 60% damage reduction;
-10004, holy blessed sword, royal guard, worldwide, weapon, 60, 45, 5, 30, 0, 0, 20% damage reduction; 50% hit chance; 60% vitality;
-10005, warlock's supreme staff, warlock, worldwide, weapon, 0, 50, 10, 0, 80, 0, 40% double hit; 40% damage reduction; 60% magic critical; 120% magic critical damage;
-10006, warlock's supreme book, warlock, worldwide, weapon, 0, 70, 10, 0, 60, 0, 60% magic damage reduction, 40% intelligence, 40% vitality;
-10007, god's staff, arch bishop, worldwide, weapon, 0, 60, 40, 0, 40, 0, 120% heal increase; 40% cooldown reduction; 80% demoniac damage reduction; 40% damage reduction;
-10008, god's shield, arch bishop, worldwide, weapon, 0, 90, 50, 0, 0, 0, 40% damage reduction; 40% cooldown reduction; 80% vitality; 45% magic damage reduction;
+//id, name, class, nvlmin, type, slot, str, vit, dex, agi, int, luk, effect
+10001, supreme poisoned dagger, shadow chaser, 0, worldwide, weapon, 20, 10, 40, 40, 0, 30, 30% poison; 60% agility; 60% dexterity;
+
+10002, double hit dagger, shadow chase, 0, worldwide, weapon, 5, 10, 50, 60, 0, 15, 80% double hit; 80% chance of critical; 120% critical damage;
+
+10003, holy blessed shield ,royal guard, 0, worldwide, weapon, 35, 80, 15, 10, 0, 0, 70% block chance; 30% reflect; 80% demoniac damage reduction; 40% damage reduction;
+
+10004, holy blessed sword, royal guard, 0, worldwide, weapon, 60, 45, 5, 30, 0, 0, 10% damage reduction; 50% hit chance; 60% vitality;
+
+10005, warlock's supreme staff, warlock, 0, worldwide, weapon, 0, 50, 10, 0, 80, 0, 40% double hit; 40% damage reduction; 60% magic critical; 120% magic critical damage;
+
+10006, warlock's supreme book, warlock, 0, worldwide, weapon, 0, 70, 10, 0, 60, 0, 40% magic damage reduction, 40% intelligence, 40% vitality;
+
+10007, god's staff, arch bishop, 0, worldwide, weapon, 0, 60, 40, 0, 40, 0, 120% heal increase; 40% cooldown reduction; 80% demoniac damage reduction; 40% damage reduction;
+
+10008, god's shield, arch bishop, 0, worldwide, weapon, 15, 90, 35, 0, 0, 0, 20% damage reduction; 40% cooldown reduction; 80% vitality; 45% magic damage reduction;
 
 //helmets
 //id, name, class, type, slot, str, vit, dex, agi, int, luk, effect
-20001, ultimate evade helmet, shadow chaser, worldwide, helmet, 5, 5, 30, 15, 0, 5, 10% dodge chance; 10% agility;
-20002, defense supreme helmet, royal guard, worldwide, helmet, 10, 50, 0, 0, 0, 0, 15% damage reduction; 15% magic damage reduction;
-20003, warlock's powerful helmet, warlock, worldwide, helmet, 0, 20, 10, 0, 30, 0, 10% cooldown reduction; 10% magic damage;
-20004, angelic cap, arch bishop, worldwide, helmet, 0, 40, 20, 0, 0, 0, 10% all damage reduction, 10% HP
+20001, ultimate evade helmet, shadow chaser, 0, worldwide, helmet, 5, 5, 30, 15, 0, 5, 10% dodge chance; 10% agility;
+
+20002, defense supreme helmet, royal guard, 0, worldwide, helmet, 10, 50, 0, 0, 0, 0, 5% damage reduction; 15% magic damage reduction;
+
+20003, warlock's powerful helmet, warlock, 0, worldwide, helmet, 0, 20, 10, 0, 30, 0, 10% cooldown reduction; 10% magic damage;
+
+20004, angelic cap, arch bishop, 0, worldwide, helmet, 0, 40, 20, 0, 0, 0, 10% all damage reduction, 10% HP;
 
 //chestplate
 //id, name, class, type, slot, str, vit, dex, agi, int, luk, effect
-30001, ultimate evade chestplate, shadow chaser, worldwide, chestplate, 7, 7, 35, 15, 0, 6, 10% dodge chance; 10% agility;
-30002, defense supreme chestplate, royal guard, worldwide, chestplate, 15, 55, 0, 0 ,0 ,0, 15% damage reduction; 15% magic damage reduction;
-30003, warlock's powerful chestplate, warlock, worldwide, chestplate, 0, 25, 10, 0, 35, 0, 10% cooldown reduction; 10% magic damage;
-30004, angelic robe, arch bishop, worldwide, chestplate, 0, 50, 20, 0, 0, 0, 10% all damage reduction; 10% HP;
+30001, ultimate evade chestplate, shadow chaser, 0, worldwide, chestplate, 7, 7, 35, 15, 0, 6, 10% dodge chance; 10% agility;
+
+30002, defense supreme chestplate, royal guard, 0, worldwide, chestplate, 15, 55, 0, 0 ,0 ,0, 5% damage reduction; 15% magic damage reduction;
+
+30003, warlock's powerful chestplate, warlock, 0, worldwide, chestplate, 0, 25, 10, 0, 35, 0, 10% cooldown reduction; 10% magic damage;
+
+30004, angelic robe, arch bishop, 0, worldwide, chestplate, 0, 50, 20, 0, 0, 0, 10% all damage reduction; 10% HP;
 
 //legs
 //id, name, class, type, slot, str, vit, dex, agi, int, luk, effect
-40001, ultimate evade legs, shadow chaser, worldwide, legs, 5, 5, 30, 15, 0, 5, 10% dodge chance; 10% agility;
-40002, defense supreme legs, royal guard, worldwide, legs, 10, 50, 0, 0, 0, 0, 15% damage reduction; 15% magic damage reduction;
-40003, warlock's powerful legs, warlock, worldwide, legs, 0, 20, 10, 0, 30, 0, 10% cooldown reduction; 10% magic damage;
-40004, angelic pants, arch bishop, worldwide, legs, 0, 40, 20, 0, 0, 0, 10% all damage reduction; 10% HP;
+40001, ultimate evade legs, shadow chaser, 0, worldwide, legs, 5, 5, 30, 15, 0, 5, 10% dodge chance; 10% agility;
+
+40002, defense supreme legs, royal guard, 0, worldwide, legs, 10, 50, 0, 0, 0, 0, 5% damage reduction; 15% magic damage reduction;
+
+40003, warlock's powerful legs, warlock, 0, worldwide, legs, 0, 20, 10, 0, 30, 0, 10% cooldown reduction; 10% magic damage;
+
+40004, angelic pants, arch bishop, 0, worldwide, legs, 0, 40, 20, 0, 0, 0, 10% all damage reduction; 10% HP;
 
 //boots
 //id, name, class, type, slot, str, vit, dex, agi, int, luk, effect
-50001, ultimate evade boots, shadow chaser, worldwide, boots, 5, 5, 30, 15, 0, 5, 10% dodge chance; 10% agility;
-50002, defense supreme boots, royal guard, worldwide, boots, 10, 50, 0, 0, 0, 0, 15% damage reduction; 15% magic damage reduction;
-50003, warlock's powerful boots, warlock, worldwide, boots, 0, 20, 10, 0, 30, 0, 10% cooldown reduction; 10% magic damage;
-50004, angelic pants, arch bishop, worldwide, boots, 0, 40, 20, 0, 0, 0, 10% all damage reduction; 10% HP;
+50001, ultimate evade boots, shadow chaser, 0, worldwide, boots, 5, 5, 30, 15, 0, 5, 10% dodge chance; 10% agility;
+
+50002, defense supreme boots, royal guard, 0, worldwide, boots, 10, 50, 0, 0, 0, 0, 5% damage reduction; 15% magic damage reduction;
+
+50003, warlock's powerful boots, warlock, 0, worldwide, boots, 0, 20, 10, 0, 30, 0, 10% cooldown reduction; 10% magic damage;
+
+50004, angelic shoes, arch bishop, 0, worldwide, boots, 0, 40, 20, 0, 0, 0, 10% all damage reduction; 10% HP;

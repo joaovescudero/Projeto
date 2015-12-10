@@ -1,3 +1,8 @@
+<?php
+$nexcs = $_GET["nexcs"];
+$nfexcs = $_GET["nfexcs"];
+$code = '[{"value":'.$nexcs.',"color":"#ff9900","highlight": "#d27f03","label":"Feitos"}, {"value":'.$nfexcs.',"color":"#d2d2d2","highlight": "#a1a1a1","label":"Nao Feitos"}]';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +12,10 @@
 
   <title>Pie Chart</title>
   <script src="Chart.min.js"></script>
+
   <script>
-    // urldecode function, which also handles the case of spaces being encoded as + 
-    // http://stackoverflow.com/a/4458580/1545993  
+    // urldecode function, which also handles the case of spaces being encoded as +
+    // http://stackoverflow.com/a/4458580/1545993
     function urldecode(str) {
       return decodeURIComponent((str+'').replace(/\+/g, '%20'));
     }
@@ -17,7 +23,7 @@
 </head>
 <body>
   <div id="canvas-holder">
-    <canvas id="chart-area" width="300" height="250"/>
+    <canvas id="chart-area" width="130" height="80"/>
   </div>
 
   <script>
@@ -29,7 +35,7 @@
       //var pieData = window.AppInventor.getWebViewString();
 
       var ctx = document.getElementById("chart-area").getContext("2d");
-      window.myPie = new Chart(ctx).Pie(JSON.parse('[{"value":5,"color":"#ff9900","highlight": "#d27f03","label":"Feitos"}]'));
+      window.myPie = new Chart(ctx).Pie(JSON.parse('<?php echo $code; ?>'));
     };
   </script>
 </body>
