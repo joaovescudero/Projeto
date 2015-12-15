@@ -466,6 +466,7 @@
 	}
 
 	/*$c = new char($_SESSION["char"], $mysql);
+	print_r($_SESSION["user"]);echo "<br>";
 	print_r($c->char);echo "<br>";
 	$c->status();
 	print_r($_SESSION["itens"]);echo "<br>";

@@ -180,7 +180,7 @@
 		 $m->getDates($_SESSION["user"], "2");
 	//echo "<br>";
 	     //$m->newChar($_SESSION["user"], "teste", "guerreiro");
-		 $m->selectChar($_SESSION["user"], "10");
+		 $m->selectChar($_SESSION["user"], "13");
 	//echo "<br>";
 	//print_r($_SESSION["char"]);
 ?>
