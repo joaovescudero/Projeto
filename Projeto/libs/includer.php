@@ -1,3 +1,3 @@
-<?
-require_once("/libs/classes/teste.txt");
+<?php
+require_once("/libs/classes/char.class.php");
 ?>

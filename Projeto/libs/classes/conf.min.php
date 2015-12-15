@@ -5,9 +5,11 @@
 	
 	//Basic configuration
 	//Game name
-	$name = "Test game";
+	$global_name = "Test game";
 	//Description
-	$description = "A simple test web-based game!";
+	$global_description = "A simple test web-based game!";
+	//Page title
+	$global_title = "Php Web Based Game";
 
 
 	//Mysql configuration

@@ -465,12 +465,12 @@
 		}
 	}
 
-	$c = new char($_SESSION["char"], $mysql);
+	/*$c = new char($_SESSION["char"], $mysql);
 	print_r($c->char);echo "<br>";
 	$c->status();
 	print_r($_SESSION["itens"]);echo "<br>";
 	print_r($_SESSION["stats"]);echo "<br>";
 	$c->itemEffect($_SESSION["itens"] ,$_SESSION["stats"]);
 	ksort($_SESSION["stats"]);
-	print_r($_SESSION["stats"]);echo "<br>";
+	print_r($_SESSION["stats"]);echo "<br>";*/
 ?>
