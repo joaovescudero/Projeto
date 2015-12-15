@@ -1,6 +1,7 @@
 <?php 
 	//Main class archive
-	//Create by: Joao Escudero <joaovescudero@gmail.com>
+	//Created by: Joao Escudero <joaovescudero@gmail.com>
+	//Git: http://github.com/joaovescudero/Projeto
 
 	//Initializing session
 	//session_start();

@@ -1,7 +1,8 @@
 <?php
 	//SQL Connection file
-	//Create by: Joao Escudero <joaovescudero@gmail.com>
+	//Created by: Joao Escudero <joaovescudero@gmail.com>
 	//Git: http://github.com/joaovescudero/Projeto
+	
 	include "main.class.php";
 
 	$lvl = 42;

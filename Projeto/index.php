@@ -1,6 +1,6 @@
 <?php
 	//Index archive
-	//Create by: Joao Escudero <joaovescudero@gmail.com>
+	//Created by: Joao Escudero <joaovescudero@gmail.com>
 	//Git: http://github.com/joaovescudero/Projeto
 	
 	require_once("libs/includer.php");
