@@ -416,7 +416,7 @@
 				}
 			}
 
-			$status = array('1' => $str, '2' => $vit, '3' => $dex, '4' => $agi, '5' => $int, '6' => $luk, '' => $, '' => $, '' => $, '' => $z);
+			$status = array('1' => $str, '2' => $vit, '3' => $dex, '4' => $agi, '5' => $int, '6' => $luk);
 
 			$sts = $this->runes($status);
 

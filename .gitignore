@@ -1,0 +1,5 @@
+$ cat .gitignore
+
+# Sublime Text files
+*.sublime-project
+*.sublime-workspace
