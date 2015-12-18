@@ -71,7 +71,7 @@
 		<!--<p class="charguild"></p>-->
 		<p class="charlevel"><?php echo $char["charlevel"]; ?></p>
 		<p class="charexperience"><?php echo $char["charexperience"]; ?> XP</p>
-		<p class="charmoney"><?php echo $char["charmoney"]; ?> coins</p>
+		<p class="charmoney"><?php echo $char["charmoney"]; ?> coin</p>
 	</div>
 	<script type="text/javascript">
     	$( document ).ready(function(){
