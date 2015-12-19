@@ -14,5 +14,5 @@
 
 	$char = array("charname" => $char_session[1], "charclass" => $char_session[2], "charlevel" => $char_session[3], "charexperience" => $char_session[4], "charmoney" => $char_session[7]);
 
-	include("/templates/index.tpl.php");
+	include("/templates/index_login.tpl.php");
 ?>

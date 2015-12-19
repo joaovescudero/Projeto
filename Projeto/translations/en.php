@@ -3,4 +3,9 @@
 				   "royal guard" => "Royal Guard", "warlock" => "Warlock", "arch bishop" => "Arch Bishop", "shadow chaser" => "Shadow Chaser");
 	$trans["xp"] = "XP";
 	$trans["coins"] = "coins";
+	$trans["logout"] = "Logout";
+	$trans["settings"] = "Settings";
+	$trans["username"] = "Username";
+	$trans["password"] = "Passowrd";
+	$trans["submit_login"] = "Login";
 ?>

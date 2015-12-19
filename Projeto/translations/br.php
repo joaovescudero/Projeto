@@ -3,4 +3,9 @@
 				   "royal guard" => "Guarda Real", "warlock" => "Feiticeiro", "arch bishop" => "Arcebispo", "shadow chaser" => "Caçador das Sombras");
 	$trans["xp"] = "XP";
 	$trans["coins"] = "moedas";
+	$trans["logout"] = "Sair";
+	$trans["settings"] = "Configurações";
+	$trans["username"] = "Usuário";
+	$trans["password"] = "Senha";
+	$trans["submit_login"] = "Logar-se";
 ?>

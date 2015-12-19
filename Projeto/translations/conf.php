@@ -5,8 +5,8 @@
 		$lang = $_GET["lang"];
 	}
 
-	if(!file_exists("/translations/".$lang.".php")){
-		$lang = "en";
-	}
+	//if(!file_exists("/translations/".$lang.".php")){
+	//	$lang = "en";
+	//}
 
 	include("/translations/".$lang.".php");

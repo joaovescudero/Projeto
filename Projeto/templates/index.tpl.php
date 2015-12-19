@@ -16,6 +16,11 @@
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style type="text/css">
+    	.menu{
+    		height: 100% !important;
+    	}
+    </style>
 </head>
 <body>
 
@@ -41,6 +46,8 @@
 			  <ul id="user" class="dropdown-content">
 		        <li class="username"><a><?php echo $user["username"]; ?></a></li>
 				<li class="useremail"><a><?php echo $user["useremail"]; ?></a></li>
+				<li class="userlogout"><a><i class="material-icons left">settings</i><?php echo $trans["settings"]; ?></a></li>
+				<li class="userlogout"><a><i class="material-icons left">power_settings_new</i><?php echo $trans["logout"]; ?></a></li>
 			  </ul>
 
 		      <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -62,18 +69,7 @@
 	  	</nav>
   	</div>
 
-	<div class="user">
-		<p class="username"><?php echo $user["username"]; ?></p>
-		<p class="useremail"><?php echo $user["useremail"]; ?></p>
-	</div>
-	<div class="char">
-		<p class="charname"><?php echo $char["charname"]; ?></p>
-		<p class="charclass"><?php echo $char["charclass"]; ?></p>
-		<!--<p class="charguild"></p>-->
-		<p class="charlevel"><?php echo $char["charlevel"]; ?></p>
-		<p class="charexperience"><?php echo $char["charexperience"]; ?> XP</p>
-		<p class="charmoney"><?php echo $char["charmoney"]; ?> coin</p>
-	</div>
+    </div>
 	<script type="text/javascript">
     	$( document ).ready(function(){
     		$(".button-collapse").sideNav();
