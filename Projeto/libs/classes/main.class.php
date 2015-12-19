@@ -34,6 +34,11 @@
 			return $enc;
 		}
 
+		//Register function
+		public function register($email, $username, $password, $birthday, $secQuest, $secAns){
+			
+		}
+
 		//Public function login
 		public function login($user, $pass){
 
@@ -172,15 +177,15 @@
 		}
 	}
 
-	 	 $m = new main($mysql);
+	 	 //$m = new main($mysql);
 
-	     $m->login("JoaoEscudero", "joao040699");
+	     //$m->login("JoaoEscudero", "joao040699");
 	//print_r($_SESSION);
 	//echo "<br>";
-		 $m->getDates($_SESSION["user"], "2");
+		 //$m->getDates($_SESSION["user"], "2");
 	//echo "<br>";
 	     //$m->newChar($_SESSION["user"], "teste", "guerreiro");
-		 $m->selectChar($_SESSION["user"], "13");
+		 //$m->selectChar($_SESSION["user"], "13");
 	//echo "<br>";
 	//print_r($_SESSION["char"]);
 ?>

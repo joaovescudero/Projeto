@@ -4,7 +4,9 @@
 	//Git: http://github.com/joaovescudero/Projeto
 
 	//Initializing session
-	//session_start();
+	if (!isset($_SESSION)) {
+		session_start();
+	}
 	
 	//Require configuration, database and logger file
 	require_once("effects.class.php");

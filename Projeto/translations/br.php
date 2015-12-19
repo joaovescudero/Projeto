@@ -12,4 +12,19 @@
 	$trans["username"] = "Usuário";
 	$trans["password"] = "Senha";
 	$trans["submit_login"] = "Logar-se";
+	$trans["submit_register"] = "Registrar-se";
+	$trans["language"] = "Linguagem";
+	$trans["login_error"] = "Usuario e/ou senha incorretas";
+	$trans["register"] = "Registrar-se";
+	$trans["back"] = "Voltar";
+	$trans["email"] = "Email";
+	$trans["birthday"] = "Data de nascimento";
+	$trans["secQuest"] = "Questão de Segurança";
+	$trans["secQuest1"] = "Qual era o seu apelido de infância?";
+	$trans["secQuest2"] = "Qual era o nome do seu primeiro animal de estimação?";
+	$trans["secQuest3"] = "Qual é o nome do seu time esportivo favorito?";
+	$trans["secQuest4"] = "Qual é o emprego dos seus sonhos?";
+	$trans["secAns"] = "Resposta de Segurança";
+	$trans["register_success"] = "Registrado com sucesso!";
+	$trans["register_error"] = "Erro ao se registrar!";
 ?>
