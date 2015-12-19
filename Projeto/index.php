@@ -5,6 +5,7 @@
 	
 	//require includer
 	require_once("libs/includer.php");
+	include("translations/conf.php");
 
 	$user_session = $_SESSION["user"];
 	$char_session = $_SESSION["char"];

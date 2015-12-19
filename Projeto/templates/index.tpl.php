@@ -12,6 +12,8 @@
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
+    <meta charset="utf-8">
+
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -26,10 +28,10 @@
 		    <div class="nav-wrapper">
 		      <ul id="nav-mobile" class="left hide-on-med-and-down">
 		        <li class="charname"><a><?php echo $char["charname"]; ?></a></li>
-				<li class="charclass"><a><?php echo $char["charclass"]; ?></a></li>
+				<li class="charclass"><a><?php echo $trans["class"][$char["charclass"]]; ?></a></li>
 				<li class="charlevel"><a><?php echo $char["charlevel"]; ?></a></li>
-				<li class="charexperience"><a><?php echo $char["charexperience"]; ?> XP</a></li>
-				<li class="charmoney"><a><?php echo $char["charmoney"]; ?> coins</a></li>
+				<li class="charexperience"><a><?php echo $char["charexperience"]." ".$trans["xp"]; ?></a></li>
+				<li class="charmoney"><a><?php echo $char["charmoney"]." ".$trans["coins"]; ?></a></li>
 		      </ul>
 
 		      <a href="#" class="brand-logo center">Web Based Game</a>
@@ -50,11 +52,10 @@
 		        <li class="username"><a><?php echo $user["username"]; ?></a></li>
 				<li class="useremail"><a><?php echo $user["useremail"]; ?></a></li>
 				<li class="charname"><a><?php echo $char["charname"]; ?></a></li>
-				<li class="charclass"><a><?php echo $char["charclass"]; ?></a></li>
+				<li class="charclass"><a><?php echo $trans["class"][$char["charclass"]]; ?></a></li>
 				<li class="charlevel"><a><?php echo $char["charlevel"]; ?></a></li>
-				<li class="charexperience"><a><?php echo $char["charexperience"]; ?> XP</a></li>
-				<li class="charmoney"><a><?php echo $char["charmoney"]; ?> coins</a></li>
-				<li><a class="dropdown-user" href="#!" data-activates="user"><?php echo $user["useremail"]; ?><i class="material-icons right">arrow_drop_down</i></a></li>
+				<li class="charexperience"><a><?php echo $char["charexperience"]." ".$trans["xp"]; ?></a></li>
+				<li class="charmoney"><a><?php echo $char["charmoney"]." ".$trans["coins"]; ?></a></li>
 		      </ul>
 
 		    </div>
