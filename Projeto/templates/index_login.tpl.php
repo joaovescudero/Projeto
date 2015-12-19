@@ -11,6 +11,8 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link href="./assets/docs.css" rel="stylesheet">
+    <link href="./css/flag-icon.css" rel="stylesheet">
 
     <meta charset="utf-8">
 
@@ -32,6 +34,16 @@
 	    <nav>
 		    <div class="nav-wrapper">
 		      <a href="#" class="brand-logo center">Web Based Game</a>
+
+			    <ul id="nav-mobile" class="right hide-on-med-and-down">
+					<!-- Dropdown Trigger -->
+				    <li><a class="dropdown-language" href="#!" data-activates="language">Languages<i class="material-icons right">arrow_drop_down</i></a></li>
+			    </ul>
+
+			    <ul id="language" class="dropdown-content">
+			        <li class="username"><a href="/Projeto/?lang=br"><span class="flag-icon flag-icon-br"></span>Brazil</a></li>
+			        <li class="username"><a href="/Projeto/?lang=en"><span class="flag-icon flag-icon-um"></span>United States</a></li>
+				 </ul>
 		    </div>
 	  	</nav>
   	</div>
@@ -72,7 +84,7 @@
 	<script type="text/javascript">
     	$( document ).ready(function(){
     		$(".button-collapse").sideNav();
-    		$(".dropdown-user").dropdown();
+    		$(".dropdown-language").dropdown();
     	});
     </script>
 </body>
