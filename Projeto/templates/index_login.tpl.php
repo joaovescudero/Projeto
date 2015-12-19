@@ -1,5 +1,5 @@
 <?php
-	//Index template archive
+	//Index Login template archive
 	//Created by: Joao Escudero <joaovescudero@gmail.com>
 	//Git: http://github.com/joaovescudero/Projeto
 ?>
