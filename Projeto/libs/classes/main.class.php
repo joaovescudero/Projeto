@@ -34,9 +34,53 @@
 			return $enc;
 		}
 
+		//Verifying user/email exist function
+		public function verDates($email, $user){
+			$query = "SELECT * FROM user_proj WHERE u_email = '$email' OR u_user = '$user'";
+			$sql_run = $this->mysql->query($query);
+			$count = $sql_run->num_rows;
+
+			if($count >= 1):
+				return false;
+			else:
+				return true;
+			endif;
+		}
+
+		//Clean dates function
+		public function cleanDate($date){
+			$date = htmlspecialchars($this->mysql->real_escape_string($date));
+			return $date;
+		}
+
 		//Register function
 		public function register($email, $username, $password, $birthday, $secQuest, $secAns){
-			
+
+			//Checking if user and password are empty
+			if(empty($email) || empty($username) || empty($password) || empty($birthday) || empty($secQuest) || empty($secAns)){
+				return 3;
+				exit;
+			}
+
+			//encrypting password
+			$e_pass = $this->encrypt($pass);
+
+			//verifying dates
+			if($this->verDates($email, $username)):
+				$email = $this->clenaDate($email);
+				$username = $this->clenaDate($username);
+				$birthday = $this->clenaDate($birthday);
+				$secQuest = $this->clenaDate($secQuest);
+				$secAns = $this->clenaDate($secAns);
+
+				$query = "INSERT INTO user_proj(u_email, u_user, u_pass, u_birth, u_qseg, u_aseg) VALUES ('$email', '$username', '$birthday', '$secQuest', '$secAns')";
+				$sql_run = $this->mysql->query($query);
+				if($sql_run):
+					return 1;
+				endif;
+			else:
+				return 0;
+			endif;
 		}
 
 		//Public function login
@@ -178,6 +222,7 @@
 	}
 
 	 	 //$m = new main($mysql);
+	 	 //echo $m->verDates("a", "a");
 
 	     //$m->login("JoaoEscudero", "joao040699");
 	//print_r($_SESSION);

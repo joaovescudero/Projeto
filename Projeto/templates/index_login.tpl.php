@@ -126,8 +126,17 @@
 			        </div>
 			        <div class="input-field col s6">
 			          <i class="material-icons prefix">lock</i>
-			          <input id="password" type="password" class="validate" name="password">
-			          <label for="password"><?php echo $trans["password"]; ?></label>
+			          <input id="passwordreg" type="password" class="validate" name="password">
+			          <label for="passwordreg"><?php echo $trans["password"]; ?></label>
+			        </div>
+			      </div>
+			      <div class="row">
+			      	<div class="input-field col s3">
+			        </div>
+			        <div class="input-field col s6">
+			          <i class="material-icons prefix">lock</i>
+			          <input id="passwordrepeat" type="password" class="validate" name="passwordrepeat">
+			          <label for="passwordrepeat"><?php echo $trans["password_repeat"]; ?></label>
 			        </div>
 			      </div>
 			      <div class="row">
@@ -218,21 +227,32 @@
     			$("#progressreg").show();
     			var email = $("#email").val();
     			var login = $("#username").val();
-    			var password = $("#password").val();
+    			var password = $("#passwordreg").val();
+    			var passwordrepeat = $("#passwordrepeat").val();
     			var birthday = $("#birthday").val();
     			var secQuest = $("#secQuest").val();
     			var secAns = $("#secAns").val();
-    			$.post("libs/register.lib.php", { email: email, login: login, pass: password, birthday: birthday, secQuest: secQuest, secAns: secAns }, function(result) {
-    				if(result==2){
-    						$('#login').show();
-							$('#register').hide();
-							Materialize.toast('<?php echo $trans["register_success"]; ?>', 4000);
-    						$("#progressreg").hide();
-    					}else{
-    						Materialize.toast('<?php echo $trans["register_error"]; ?>', 4000);
-    						$("#progressreg").hide();
-    					}
-    			});
+    			if(email === "" && login === "" && password === "" && birthday === "" && secQuest === "" && secAns === ""){
+	    			$("#progressreg").hide();
+					Materialize.toast('<?php echo $trans["register_error_blank"]; ?>', 4000);
+	    		}else{
+					if(password === passwordrepeat){
+		    			$.post("libs/register.lib.php", { email: email, login: login, pass: password, birthday: birthday, secQuest: secQuest, secAns: secAns }, function(result) {
+		    				if(result==1){
+		    						$('#login').show();
+									$('#register').hide();
+									Materialize.toast('<?php echo $trans["register_success"]; ?>', 4000);
+		    						$("#progressreg").hide();
+		    					}else{
+		    						Materialize.toast('<?php echo $trans["register_error"]; ?>', 4000);
+		    						$("#progressreg").hide();
+		    					}
+		    			});
+	    			}else{
+	    				$("#progressreg").hide();
+						Materialize.toast('<?php echo $trans["register_error_password"]; ?>', 4000);
+	    			}
+	    		}
     			return false;
     		});
     	});

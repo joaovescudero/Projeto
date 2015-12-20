@@ -10,7 +10,8 @@
 	$trans["logout"] = "Logout";
 	$trans["settings"] = "Settings";
 	$trans["username"] = "Username";
-	$trans["password"] = "Passowrd";
+	$trans["password"] = "Password";
+	$trans["password_repeat"] = "Repeat your password";
 	$trans["submit_login"] = "Login";
 	$trans["submit_register"] = "Register";
 	$trans["language"] = "Language";
@@ -20,11 +21,13 @@
 	$trans["email"] = "Email";
 	$trans["birthday"] = "Birthday";
 	$trans["secQuest"] = "Security Question";
-	$trans["secQuest1"] = "What was your childhood nicjname?";
+	$trans["secQuest1"] = "What was your childhood nickname?";
 	$trans["secQuest2"] = "What was the name of your fist pet?";
 	$trans["secQuest3"] = "What is the name of your favorite sports team?";
 	$trans["secQuest4"] = "What is your dream job?";
 	$trans["secAns"] = "Security Answer";
 	$trans["register_success"] = "Successfully registred!";
-	$trans["register_error"] = "Error register!";
+	$trans["register_error"] = "Email/Username already used!";
+	$trans["register_error_password"] = "Passwords must match!";
+	$trans["register_error_blank"] = "Please fill all filds!";
 ?>

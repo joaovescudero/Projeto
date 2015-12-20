@@ -11,6 +11,7 @@
 	$trans["settings"] = "Configurações";
 	$trans["username"] = "Usuário";
 	$trans["password"] = "Senha";
+	$trans["password_repeat"] = "Repita sua senha";
 	$trans["submit_login"] = "Logar-se";
 	$trans["submit_register"] = "Registrar-se";
 	$trans["language"] = "Linguagem";
@@ -26,5 +27,7 @@
 	$trans["secQuest4"] = "Qual é o emprego dos seus sonhos?";
 	$trans["secAns"] = "Resposta de Segurança";
 	$trans["register_success"] = "Registrado com sucesso!";
-	$trans["register_error"] = "Erro ao se registrar!";
+	$trans["register_error"] = "Email/Usuário já utilizado!";
+	$trans["register_error_password"] = "As senhas não coincidem!";
+	$trans["register_error_blank"] = "Preencha todos os campos!";
 ?>
