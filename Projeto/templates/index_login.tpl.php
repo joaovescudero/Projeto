@@ -177,7 +177,7 @@
 				      <button class="btn waves-effect waves-light" type="submit" name="action"><?php echo $trans["submit_register"]; ?>
 					    <i class="material-icons right">send</i>
 					  </button>
-					  <a href="#login" class="btn" onclick="$('#login').show();$('#register').hide();"><?php echo $trans["back"]; ?></a>
+					  <a href="#login" class="btn" onclick="$('#login').show();$('#register').hide();cleanDates();"><?php echo $trans["back"]; ?></a>
 					</div>
 				  </div>
 			    </form>
@@ -190,6 +190,15 @@
     	  var url = location.hash;
 		  var page = url.split('#')[1];	
 		  location.href="index.php?lang="+language+"#"+page;
+		}
+		function cleanDates(){
+			$("#email").val("");
+			$("#username").val("");
+			$("#passwordreg").val("");
+			$("#passwordrepeat").val("");
+			$("#birthday").val("");
+			$("#secQuest").val("");
+			$("#secAns").val("");
 		}
     	$( document ).ready(function(){
     		$('#register').hide();
@@ -213,7 +222,7 @@
     			var password = $("#password").val();
     			$.post("libs/login.lib.php", { login: login, pass: password }, function(result) {
     				if(result==2){
-    						location.href="index.php";
+    						location.href="/Projeto/";
     						$("#progress").hide();
     					}else{
     						Materialize.toast('<?php echo $trans["login_error"]; ?>', 4000);
@@ -228,7 +237,7 @@
     			var email = $("#email").val();
     			var login = $("#username").val();
     			var password = $("#passwordreg").val();
-    			var passwordrepeat = $("#passwordrepeat").val();
+    			//var passwordrepeat = $("#passwordrepeat").val();
     			var birthday = $("#birthday").val();
     			var secQuest = $("#secQuest").val();
     			var secAns = $("#secAns").val();
@@ -236,12 +245,20 @@
 	    			$("#progressreg").hide();
 					Materialize.toast('<?php echo $trans["register_error_blank"]; ?>', 4000);
 	    		}else{
-					if(password === passwordrepeat){
-		    			$.post("libs/register.lib.php", { email: email, login: login, pass: password, birthday: birthday, secQuest: secQuest, secAns: secAns }, function(result) {
+					if($("#passwordreg").val() == $("#passwordrepeat").val()){
+		    			$.post("libs/register.lib.php", { email: email, login: login, password: password, birthday: birthday, secQuest: secQuest, secAns: secAns }, function(result) {
+		    				console.log(result);
 		    				if(result==1){
 		    						$('#login').show();
 									$('#register').hide();
 									Materialize.toast('<?php echo $trans["register_success"]; ?>', 4000);
+									$("#email").val("");
+									$("#username").val("");
+									$("#passwordreg").val("");
+									$("#passwordrepeat").val("");
+									$("#birthday").val("");
+									$("#secQuest").val("");
+									$("#secAns").val("");
 		    						$("#progressreg").hide();
 		    					}else{
 		    						Materialize.toast('<?php echo $trans["register_error"]; ?>', 4000);

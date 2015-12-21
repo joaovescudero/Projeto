@@ -6,6 +6,7 @@
 	$trans["class"] = array("warrior" => "Guerreiro", "mage" => "Mago", "acolyte" => "Acólito", "thief" => "Ladrão", "knight" => "Cavaleiro", "wizard" => "Bruxo", "priest" => "Sacerdote", "rogue" => "Arruaceiro",
 				   "royal guard" => "Guarda Real", "warlock" => "Feiticeiro", "arch bishop" => "Arcebispo", "shadow chaser" => "Caçador das Sombras");
 	$trans["xp"] = "XP";
+	$trans["level"] = "Nível";
 	$trans["coins"] = "moedas";
 	$trans["logout"] = "Sair";
 	$trans["settings"] = "Configurações";
@@ -30,4 +31,11 @@
 	$trans["register_error"] = "Email/Usuário já utilizado!";
 	$trans["register_error_password"] = "As senhas não coincidem!";
 	$trans["register_error_blank"] = "Preencha todos os campos!";
+	$trans["add_char"] = "Criar novo personagem";
+	$trans["name"] = "Nome";
+	$trans["chooseClass"] = "Escolha sua classe!";
+	$trans["create_char"] = "Criar";
+	$trans["create_error_name"] = "Por favor escolha um nome!";
+	$trans["create_error_class"] = "Por favor selecione uma classe!";
+	$trans["create_error"] = "Nome já utilizado!";
 ?>

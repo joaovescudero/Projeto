@@ -6,6 +6,5 @@
 
   	$main = new main($mysql);
 
-  	$main->selectChar($_SESSION["user"], "13");
   	echo $main->login($login, $pass);
 ?>

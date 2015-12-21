@@ -47,7 +47,7 @@
 		        <li class="username"><a><?php echo $user["username"]; ?></a></li>
 				<li class="useremail"><a><?php echo $user["useremail"]; ?></a></li>
 				<li class="userlogout"><a><i class="material-icons left">settings</i><?php echo $trans["settings"]; ?></a></li>
-				<li class="userlogout"><a href="libs/logout.lib.php"><i class="material-icons left">power_settings_new</i><?php echo $trans["logout"]; ?></a></li>
+				<li class="userlogout"><a href="logout"><i class="material-icons left">power_settings_new</i><?php echo $trans["logout"]; ?></a></li>
 			  </ul>
 
 		      <ul id="nav-mobile" class="right hide-on-med-and-down">

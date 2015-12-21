@@ -3,7 +3,7 @@
 
 	$email=$_POST['email'];
   	$login=$_POST['login'];
-  	$pass=$_POST['pass'];
+  	$pass=$_POST['password'];
   	$birth=$_POST['birthday'];
   	$secQuest=$_POST['secQuest'];
   	$secAns=$_POST['secAns'];

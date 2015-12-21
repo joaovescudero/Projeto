@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^sel-char/([^/]*)$ libs/selchar.lib.php?id=$1 [L]
+RewriteRule ^logout$ libs/logout.lib.php [L]
+</IfModule>
