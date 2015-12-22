@@ -158,11 +158,11 @@
 			$u_user = $this->getDates($user, "1");
 
 			//Verifying number of characters
-			$id_user = $this->getDates($user, "0");
-			$sql_run = $this->mysql->query("SELECT c_id_acc FROM char_proj WHERE c_id_acc = '$id_user'");
+			$id_user = $user[0];
+			$sql_char_run = $this->mysql->query("SELECT c_id_acc FROM char_proj WHERE c_id_acc = '$id_user'");
 
 			//counting rows
-			$count = $sql_run->num_rows;
+			$count = $sql_char_run->num_rows;
 
 			//Verifying name of character
 			$sql_run = $this->mysql->query("SELECT c_name FROM char_proj WHERE c_name = '$name'");
@@ -206,12 +206,12 @@
 
 					//if have more of 3 chars
 					$this->log("Trying to create under 3, User: $u_user", $this->date);
-					return 3;
+					return $user;
 					exit;
 
 				}
 			}else{
-				return 3;
+				return 5;
 				exit;
 			}
 		}
