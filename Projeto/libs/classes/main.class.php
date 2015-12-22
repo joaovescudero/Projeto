@@ -191,6 +191,17 @@
 
 						}
 
+						$id_char = $this->mysql->insert_id;
+
+						$sql_attr = "INSERT INTO stats_proj(id_char) VALUES ('$id_char')";
+						$run_attr = $this->mysql->query($sql_attr);
+
+						if(!$run_attr){
+							$this->log("Mysql error, function: newChar-Stats", $this->date);
+							return 3;
+							exit;
+						}
+
 						$this->log("Character create with successful, User: $u_user", $this->date);
 						return 2;
 
@@ -275,17 +286,4 @@
 
 		}
 	}
-
-	 	 //$m = new main($mysql);
-	 	 //echo $m->verDates("a", "a");
-
-	     //$m->login("JoaoEscudero", "joao040699");
-	//print_r($_SESSION);
-	//echo "<br>";
-		 //$m->getDates($_SESSION["user"], "2");
-	//echo "<br>";
-	     //$m->newChar($_SESSION["user"], "teste", "guerreiro");
-		 //$m->getChars($_SESSION["user"]);
-	//echo "<br>";
-	//print_r($_SESSION["char"]);
 ?>

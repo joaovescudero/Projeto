@@ -362,26 +362,7 @@
 				$this->agi = null;
 				$this->int = null;
 				$this->luk = null;
-			}/*else{
-				$this->str = $_SESSION["stats"][1];
-				$this->vit = $_SESSION["stats"][2];
-				$this->dex = $_SESSION["stats"][3];
-				$this->agi = $_SESSION["stats"][4];
-				$this->int = $_SESSION["stats"][5];
-				$this->luk = $_SESSION["stats"][6];
-				$this->atk = $_SESSION["stats"][24];
-				$this->magic_atk = $_SESSION["stats"][25];
-				$this->block = $_SESSION["stats"][11];
-				$this->HP = $_SESSION["stats"][23];
-				$this->dam_red = $_SESSION["stats"][14];
-				$this->cd_red = $_SESSION["stats"][20];
-				$this->hit = $_SESSION["stats"][15];
-				$this->mag_crit = $_SESSION["stats"][16];
-				$this->mag_crit_dam = $_SESSION["stats"][17];
-				$this->crit = $_SESSION["stats"][9];
-				$this->crit_dam = $_SESSION["stats"][10];
-				$this->dodge = $_SESSION["stats"][21];
-			}*/
+			}
 		}
 
 		public function status(){
@@ -465,15 +446,9 @@
 			$sts = $this->runesEffect($runes, $status);
 			return $sts;
 		}
-	}
 
-	/*$c = new char($_SESSION["char"], $mysql);
-	print_r($_SESSION["user"]);echo "<br>";
-	print_r($c->char);echo "<br>";
-	$c->status();
-	print_r($_SESSION["itens"]);echo "<br>";
-	print_r($_SESSION["stats"]);echo "<br>";
-	$c->itemEffect($_SESSION["itens"] ,$_SESSION["stats"]);
-	ksort($_SESSION["stats"]);
-	print_r($_SESSION["stats"]);echo "<br>";*/
+		public function getPoints($attr){
+			$char = $_SESSION["char"];
+		}
+	}
 ?>

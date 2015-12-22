@@ -5,11 +5,13 @@
 
 	$trans["class"] = array("warrior" => "Guerreiro", "mage" => "Mago", "acolyte" => "Acólito", "thief" => "Ladrão", "knight" => "Cavaleiro", "wizard" => "Bruxo", "priest" => "Sacerdote", "rogue" => "Arruaceiro",
 				   "royal guard" => "Guarda Real", "warlock" => "Feiticeiro", "arch bishop" => "Arcebispo", "shadow chaser" => "Caçador das Sombras");
+	$trans["statsName"] = array("strength" => "Força", "vitality" => "Vitalidade", "dexterity" => "Destreza", "agility" => "Agilidade", "intelligence" => "Inteligência", "lucky" => "Sorte");
 	$trans["xp"] = "XP";
 	$trans["level"] = "Nível";
 	$trans["coins"] = "moedas";
 	$trans["logout"] = "Sair";
 	$trans["settings"] = "Configurações";
+	$trans["changeChar"] = "Trocar Personagem";
 	$trans["username"] = "Usuário";
 	$trans["password"] = "Senha";
 	$trans["password_repeat"] = "Repita sua senha";
@@ -38,4 +40,13 @@
 	$trans["create_error_name"] = "Por favor escolha um nome!";
 	$trans["create_error_class"] = "Por favor selecione uma classe!";
 	$trans["create_error"] = "Nome já utilizado!";
+	$trans["stats"] = "Stats";
+	$trans["inventory"] = "Inventario";
+	$trans["skills"] = "Habilidades";
+	$trans["guild"] = "Guild";
+	$trans["shop"] = "Loja";
+	$trans["character"] = "Pernsonagem";
+	$trans["chest"] = "Baú";
+	$trans["points"] = "Pontos: ";
+	$trans["save"] = "Salvar";
 ?>

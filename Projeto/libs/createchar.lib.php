@@ -6,5 +6,5 @@
 
   	$main = new main($mysql);
 
-  	echo $main->newChar($_SESSION["user"], $name, $class);
+  	print_r ($main->newChar($_SESSION["user"], $name, $class));
 ?>

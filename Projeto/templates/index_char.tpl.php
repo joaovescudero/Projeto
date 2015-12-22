@@ -60,16 +60,17 @@
   		<div class="row">
 	  		<ul id="chars">
 			  <div class="col s12 m6 l3 center-align"><p><?php if(!$main->getChar("0")):?><a href="#" onclick="Create()"><i class="large material-icons">add</i><br><h5><?php echo $trans["add_char"]; ?></h5></a><?php else:
-			  	echo '<h4>'.$main->getChar("0")[1].'</h4><h5>'.$trans["class"][$main->getChar("0")[2]].'<br>'.$trans["level"].': '.$main->getChar("0")[3].'<br>'.$main->getChar("0")[7].' '.$trans["coins"].'</h5><a class="waves-effect waves-light btn" href="sel-char/'.$main->getChar("0")[0].'"><i class="material-icons left">play_arrow</i>select</a>'; endif; ?></p></div>
+			  	echo '<h4>'.$main->getChar("0")[1].'</h4><h5>'.$trans["class"][$main->getChar("0")[2]].'<br>'.$trans["level"].': '.$main->getChar("0")[3].'<br>'.$main->getChar("0")[7].' '.$trans["coins"].'</h5><a class="waves-effect waves-light btn" href="sel-char/'.$main->getChar("0")[0].'"><i class="material-icons left">play_arrow</i>select</a><br>
+<a onclick="deleteChar(\''.$main->getChar("0")[0].'\');" class="waves-effect waves-light btn red"><i class="material-icons left">cancel</i>Delete</a>'; endif; ?></p></div>
 			  <div class="col s12 m6 l3 center-align"><p><?php if(!$main->getChar("1")):?><a href="#" onclick="Create()"><i class="large material-icons">add</i><br><h5><?php echo $trans["add_char"]; ?></h5></a><?php else:
-			  	echo '<h4>'.$main->getChar("1")[1].'</h4><h5>'.$trans["class"][$main->getChar("1")[2]].'<br>'.$trans["level"].': '.$main->getChar("1")[3].'<br>'.$main->getChar("1")[7].' '.$trans["coins"].'</h5><a class="waves-effect waves-light btn" href="sel-char/'.$main->getChar("1")[0].'"><i class="material-icons left">play_arrow</i>select</a>'
-			   ?><?php endif; ?></p></div>
+			  	echo '<h4>'.$main->getChar("1")[1].'</h4><h5>'.$trans["class"][$main->getChar("1")[2]].'<br>'.$trans["level"].': '.$main->getChar("1")[3].'<br>'.$main->getChar("1")[7].' '.$trans["coins"].'</h5><a class="waves-effect waves-light btn" href="sel-char/'.$main->getChar("1")[0].'"><i class="material-icons left">play_arrow</i>select</a><br>
+<a onclick="deleteChar(\''.$main->getChar("1")[0].'\');" class="waves-effect waves-light btn red"><i class="material-icons left">cancel</i>Delete</a>'; endif; ?></p></div>
 			  <div class="col s12 m6 l3 center-align"><p><?php if(!$main->getChar("2")):?><a href="#" onclick="Create()"><i class="large material-icons">add</i><br><h5><?php echo $trans["add_char"]; ?></h5></a><?php else:
-			  	echo '<h4>'.$main->getChar("2")[1].'</h4><h5>'.$trans["class"][$main->getChar("2")[2]].'<br>'.$trans["level"].': '.$main->getChar("2")[3].'<br>'.$main->getChar("2")[7].' '.$trans["coins"].'</h5><a class="waves-effect waves-light btn" href="sel-char/'.$main->getChar("2")[0].'"><i class="material-icons left">play_arrow</i>select</a>'
-			   ?><?php endif; ?></p></div>
+			  	echo '<h4>'.$main->getChar("2")[1].'</h4><h5>'.$trans["class"][$main->getChar("2")[2]].'<br>'.$trans["level"].': '.$main->getChar("2")[3].'<br>'.$main->getChar("2")[7].' '.$trans["coins"].'</h5><a class="waves-effect waves-light btn" href="sel-char/'.$main->getChar("2")[0].'"><i class="material-icons left">play_arrow</i>select</a><br>
+<a onclick="deleteChar(\''.$main->getChar("2")[0].'\');" class="waves-effect waves-light btn red"><i class="material-icons left">cancel</i>Delete</a>'; endif; ?></p></div>
 			  <div class="col s12 m6 l3 center-align"><p><?php if(!$main->getChar("3")):?><a href="#" onclick="Create()"><i class="large material-icons">add</i><br><h5><?php echo $trans["add_char"]; ?></h5></a><?php else:
-			  	echo '<h4>'.$main->getChar("3")[1].'</h4><h5>'.$trans["class"][$main->getChar("3")[2]].'<br>'.$trans["level"].': '.$main->getChar("3")[3].'<br>'.$main->getChar("3")[7].' '.$trans["coins"].'</h5><a class="waves-effect waves-light btn" href="sel-char/'.$main->getChar("3")[0].'"><i class="material-icons left">play_arrow</i>select</a>'
-			   ?><?php endif; ?></p></div>
+			  	echo '<h4>'.$main->getChar("3")[1].'</h4><h5>'.$trans["class"][$main->getChar("3")[2]].'<br>'.$trans["level"].': '.$main->getChar("3")[3].'<br>'.$main->getChar("3")[7].' '.$trans["coins"].'</h5><a class="waves-effect waves-light btn" href="sel-char/'.$main->getChar("3")[0].'"><i class="material-icons left">play_arrow</i>select</a><br>
+<a onclick="deleteChar(\''.$main->getChar("3")[0].'\');" class="waves-effect waves-light btn red"><i class="material-icons left">cancel</i>Delete</a>'; endif; ?></p></div>
 			</ul>
 
 			<ul id="createchar">
@@ -162,6 +163,10 @@
     	function Create(){
     		$('#chars').hide();
     		$('#createchar').show();
+    	}
+
+    	function deleteChar(charid){
+    		alert(charid);
     	}
     </script>
 </body>

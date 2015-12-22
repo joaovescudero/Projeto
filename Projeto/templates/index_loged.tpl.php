@@ -46,7 +46,8 @@
 			  <ul id="user" class="dropdown-content">
 		        <li class="username"><a><?php echo $user["username"]; ?></a></li>
 				<li class="useremail"><a><?php echo $user["useremail"]; ?></a></li>
-				<li class="userlogout"><a><i class="material-icons left">settings</i><?php echo $trans["settings"]; ?></a></li>
+				<li class="usersettings"><a><i class="material-icons left">settings</i><?php echo $trans["settings"]; ?></a></li>
+				<li class="userchangechar"><a href="changeChar"><i class="material-icons left">supervisor_account</i><?php echo $trans["changeChar"]; ?></a></li>
 				<li class="userlogout"><a href="logout"><i class="material-icons left">power_settings_new</i><?php echo $trans["logout"]; ?></a></li>
 			  </ul>
 
@@ -69,7 +70,40 @@
 	  	</nav>
   	</div>
 
-    </div>
+    <div class="row">
+      <div class="col s12">
+        <ul class="tabs">
+          <li class="tab col s3"><a class="active" href="#stats"><?php echo $trans["stats"]; ?></a></li>
+          <li class="tab col s3"><a href="#inventory"><?php echo $trans["inventory"]; ?></a></li>
+          <li class="tab col s3"><a href="#skills"><?php echo $trans["skills"]; ?></a></li>
+          <li class="tab col s3 disabled"><a href="#guild"><?php echo $trans["guild"]; ?></a></li>
+          <li class="tab col s3"><a href="#shop"><?php echo $trans["shop"]; ?></a></li>
+        </ul>
+      </div>
+	  <div id="stats" class="col s12">
+	  	<h5><?php echo $trans["points"]; ?> <b><?php echo $char["charpoints"] ?></b><br>
+	  		<?php echo $trans["statsName"]["strength"]; ?>: <b>54</b><i class="material-icons">add</i><br>
+	  		<?php echo $trans["statsName"]["vitality"]; ?>: <b>54</b><i class="material-icons">add</i><br>
+	  		<?php echo $trans["statsName"]["dexterity"]; ?>: <b>54</b><i class="material-icons">add</i><br>
+	  		<?php echo $trans["statsName"]["agility"]; ?>: <b>54</b><i class="material-icons">add</i><br>
+	  		<?php echo $trans["statsName"]["intelligence"]; ?>: <b>54</b><i class="material-icons">add</i><br>
+	  		<?php echo $trans["statsName"]["lucky"]; ?>: <b>54</b><i class="material-icons">add</i><br>
+	  	</h5>
+	  </div>
+	  <div id="inventory" class="col s12">
+	  	<div class="col s12">
+	        <ul class="tabs">
+	          <li class="tab col s3"><a class="active" href="#character"><?php echo $trans["character"]; ?></a></li>
+	          <li class="tab col s3"><a href="#chest"><?php echo $trans["chest"]; ?></a></li>
+	        </ul>
+      	</div>
+      	<div id="character" class="col s12">Test 2</div>
+	  	<div id="chest" class="col s12">Test 3</div>
+	  </div>
+	  <div id="skills" class="col s12">Test 3</div>
+	  <div id="guild" class="col s12">Test 4</div>
+	  <div id="shop" class="col s12">Test 5</div>
+	</div>
 	<script type="text/javascript">
     	$( document ).ready(function(){
     		$(".button-collapse").sideNav();
