@@ -34,7 +34,11 @@
 		      <ul id="nav-mobile" class="left hide-on-med-and-down">
 		        <li class="charname"><a><?php echo $char["charname"]; ?></a></li>
 				<li class="charclass"><a><?php echo $trans["class"][$char["charclass"]]; ?></a></li>
-				<li class="charlevel"><a><?php echo $char["charlevel"]; ?></a></li>
+				<li class="charlevel"><a><?php echo $char["charlevel"];
+				if((($char["charclass"] == "warrior" || $char["charclass"] == "mage" || $char["charclass"] == "acolyte" || $char["charclass"] == "thief") && $char["charlevel"] == "20") || (($char["charclass"] == "knight" || $char["charclass"] == "wizard" || $char["charclass"] == "priest" || $char["charclass"] == "rogue") && $char["charlevel"] == "40")){
+					echo '<span class="badge white-text teal lighten-2">'.$trans["classup"].'</span>';
+				}
+				if($char["charlevel"] >= 41 && $char["charreborns"] <= 5){echo '<span class="badge white-text teal lighten-2">'.$trans["reborn"].'</span>';} ?></a></li>
 				<li class="charexperience"><a><?php echo $char["charexperience"]." ".$trans["xp"]; ?></a></li>
 				<li class="charmoney"><a><?php echo $char["charmoney"]." ".$trans["coins"]; ?></a></li>
 		      </ul>
@@ -80,16 +84,50 @@
           <li class="tab col s3"><a href="#shop"><?php echo $trans["shop"]; ?></a></li>
         </ul>
       </div>
+
 	  <div id="stats" class="col s12">
-	  	<h5><?php echo $trans["points"]; ?> <b id="points"><?php echo $char["charpoints"] ?></b><br>
-	  		<?php echo $trans["statsName"]["strength"]; ?>: <b id="strength"><?php echo $stats[1]; ?></b><a href="#" class="material-icons" onclick="addStr()">add</a><br>
-	  		<?php echo $trans["statsName"]["vitality"]; ?>: <b id="vitality"><?php echo $stats[2]; ?></b><a href="#" class="material-icons" onclick="addVit()">add</a><br>
-	  		<?php echo $trans["statsName"]["dexterity"]; ?>: <b id="dexterity"><?php echo $stats[3]; ?></b><a href="#" class="material-icons" onclick="addDex()">add</a><br>
-	  		<?php echo $trans["statsName"]["agility"]; ?>: <b id="agility"><?php echo $stats[4]; ?></b><a href="#" class="material-icons" onclick="addAgi()">add</a><br>
-	  		<?php echo $trans["statsName"]["intelligence"]; ?>: <b id="intelligence"><?php echo $stats[5]; ?></b><a href="#" class="material-icons" onclick="addInt()">add</a><br>
-	  		<?php echo $trans["statsName"]["lucky"]; ?>: <b id="lucky"><?php echo $stats[6]; ?></b><a href="#" class="material-icons" onclick="addLuk()">add</a><br>
-	  		<a class="waves-effect waves-light btn" id="savestats" onclick="saveStats('<?php echo $char["charid"]; ?>')"><i class="material-icons left">send</i><?php echo $trans["save"]; ?></a>
-	  	</h5>
+	 	<div class="col s6 m3">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+	             <p><?php echo $trans["level"].": <b>".$char["charlevel"]."</b><br>"; ?>
+			  		<?php echo $trans["xp"].": <b>".$char["charexperience"]."</b>"; ?>
+			  		<div class="progress" style="width: 50%">
+				      <div class="determinate" style="width: <?php echo $charClass->getExp($_SESSION["char"]); ?>%"></div>
+				  	</div>
+			  	</p>
+            </div>
+          </div>
+        </div>
+        <div class="col s6 m3">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+	             <p><?php echo $trans["points"]; ?> <b id="points"><?php echo $char["charpoints"] ?></b><br>
+			  		<?php echo $trans["statsName"]["strength"]; ?>: <b id="strength"><?php echo $stats[1]; ?></b><a href="#" class="material-icons" onclick="addStr()">add</a><br>
+			  		<?php echo $trans["statsName"]["vitality"]; ?>: <b id="vitality"><?php echo $stats[2]; ?></b><a href="#" class="material-icons" onclick="addVit()">add</a><br>
+			  		<?php echo $trans["statsName"]["dexterity"]; ?>: <b id="dexterity"><?php echo $stats[3]; ?></b><a href="#" class="material-icons" onclick="addDex()">add</a><br>
+			  		<?php echo $trans["statsName"]["agility"]; ?>: <b id="agility"><?php echo $stats[4]; ?></b><a href="#" class="material-icons" onclick="addAgi()">add</a><br>
+			  		<?php echo $trans["statsName"]["intelligence"]; ?>: <b id="intelligence"><?php echo $stats[5]; ?></b><a href="#" class="material-icons" onclick="addInt()">add</a><br>
+			  		<?php echo $trans["statsName"]["lucky"]; ?>: <b id="lucky"><?php echo $stats[6]; ?></b><a href="#" class="material-icons" onclick="addLuk()">add</a><br>
+			  	</p>
+            </div>
+            <div class="white-text card-action" id="savestats">
+			  	<a class="waves-effect waves-light btn" onclick="saveStats('<?php echo $char["charid"]; ?>')"><i class="material-icons left">send</i><?php echo $trans["save"]; ?></a>
+			</div>
+          </div>
+        </div>
+        <div class="col s6 m3">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+	             <p><?php echo $trans["lefthand"].": <b>".$trans["itens"][$charClass->getItemName($_SESSION["itens"][1])]."</b><br>"; ?>
+	             	<?php echo $trans["righthand"].": <b>".$trans["itens"][$charClass->getItemName($_SESSION["itens"][2])]."</b><br>"; ?>
+	             	<?php echo $trans["helmet"].": <b>".$trans["itens"][$charClass->getItemName($_SESSION["itens"][3])]."</b><br>"; ?>
+	             	<?php echo $trans["chestplate"].": <b>".$trans["itens"][$charClass->getItemName($_SESSION["itens"][4])]."</b><br>"; ?>
+	             	<?php echo $trans["legs"].": <b>".$trans["itens"][$charClass->getItemName($_SESSION["itens"][5])]."</b><br>"; ?>
+	             	<?php echo $trans["boots"].": <b>".$trans["itens"][$charClass->getItemName($_SESSION["itens"][6])]."</b><br>"; ?>
+			  	</p>
+            </div>
+          </div>
+        </div>
 	  </div>
 	  <div id="inventory" class="col s12">
 	  	<div class="col s12">

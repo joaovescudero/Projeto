@@ -221,18 +221,34 @@
 				$n_stats = $n_stats + $stats;
 				$n_reborns = $reborns + 1;
 
+				if($reborns == 6){
+					return 3;
+					exit();
+				}
+
 				//reborn
 				$item = $this->item($n_reborns);
-				//if($item == 1){}else{}
-				//if($this->random() == 0){
-				//	exit;
-				//}
+
+				if($item == 1){
+					return 1;
+					exit();
+				}
+				if($item == 2){
+					return 2;
+					exit();
+				}
 
 				$sql = "UPDATE char_proj SET c_level = '1', c_exp = '0', c_stats = '$n_stats', c_reborns = '$n_reborns' WHERE c_id='$id'";
 				$run = $this->mysql->query($sql);
 
+				if(!$run){
+					return 1;
+					exit();
+				}
+
 				//saving log
 				$this->log("Char reborned, reborn: $n_reborns, char: $id", $this->date);
+				return 2;
 			}
 		}
 
@@ -244,86 +260,86 @@
 			//giving the item
 			if($reborns == 1){
 				if($class == "shadow chaser"){
-					$this->giveItem("10001");
+					return $this->giveItem("10001");
 				}
 				elseif($class == "royal guard"){
-					$this->giveItem("10003");
+					return $this->giveItem("10003");
 				}
 				elseif($class == "warlock"){
-					$this->giveItem("10004");	
+					return $this->giveItem("10004");	
 				}
 				elseif($class == "arch bishop"){
-					$this->giveItem("10005");
+					return $this->giveItem("10005");
 				}
 			}
 			elseif($reborns == 2){
 				if($class == "shadow chaser"){
-					$this->giveItem("10002");
+					return $this->giveItem("10002");
 				}
 				elseif($class == "royal guard"){
-					$this->giveItem("10004");
+					return $this->giveItem("10004");
 				}
 				elseif($class == "warlock"){
-					$this->giveItem("10006");	
+					return $this->giveItem("10006");	
 				}
 				elseif($class == "arch bishop"){
-					$this->giveItem("10008");
+					return $this->giveItem("10008");
 				}
 			}
 			elseif($reborns == 3){
 				if($class == "shadow chaser"){
-					$this->giveItem("20001");
+					return $this->giveItem("20001");
 				}
 				elseif($class == "royal guard"){
-					$this->giveItem("20002");
+					return $this->giveItem("20002");
 				}
 				elseif($class == "warlock"){
-					$this->giveItem("20003");	
+					return $this->giveItem("20003");	
 				}
 				elseif($class == "arch bishop"){
-					$this->giveItem("20004");
+					return $this->giveItem("20004");
 				}
 			}
 			elseif($reborns == 4){
 				if($class == "shadow chaser"){
-					$this->giveItem("30001");
+					return $this->giveItem("30001");
 				}
 				elseif($class == "royal guard"){
-					$this->giveItem("30002");
+					return $this->giveItem("30002");
 				}
 				elseif($class == "warlock"){
-					$this->giveItem("30003");	
+					return $this->giveItem("30003");	
 				}
 				elseif($class == "arch bishop"){
-					$this->giveItem("30004");
+					return $this->giveItem("30004");
 				}
 			}
 			elseif($reborns == 5){
 				if($class == "shadow chaser"){
-					$this->giveItem("40001");
+					return $this->giveItem("40001");
 				}
 				elseif($class == "royal guard"){
-					$this->giveItem("40002");
+					return $this->giveItem("40002");
 				}
 				elseif($class == "warlock"){
-					$this->giveItem("40003");	
+					return $this->giveItem("40003");	
 				}
 				elseif($class == "arch bishop"){
-					$this->giveItem("40004");
+					return $this->giveItem("40004");
 				}
 			}
 			elseif($reborns == 6){
 				if($class == "shadow chaser"){
-					$this->giveItem("50001");
+					return $this->giveItem("50001");
 				}
 				elseif($class == "royal guard"){
-					$this->giveItem("50002");
+					return $this->giveItem("50002");
 				}
 				elseif($class == "warlock"){
-					$this->giveItem("50003");	
+					return $this->giveItem("50003");	
 				}
 				elseif($class == "arch bishop"){
-					$this->giveItem("50004");
+					return $this->giveItem("50004");
 				}
 			}
 		}
@@ -346,11 +362,23 @@
 			$slot = $num + 1;
 			$sql_add = "INSERT INTO bank_proj(bank_item_id, bank_item_slot, bank_acc_id) VALUES('$item_id', '$slot', '$id_acc')";
 			$run_add = $this->mysql->query($sql_add);
-			return 1;
+			if(!$run_add){
+				return 1;
+				exit();
+			}
+
+			return 2;
 
 			//saving log
 			$this->log("Adding an item, item: $item_id, account: $id_acc", $this->date);
 
+		}
+
+		public function getItemName($itemID){
+			$sql = "SELECT * FROM item_proj WHERE item_id='$itemID'";
+			$run = $this->mysql->query($sql);
+			$fetch_array = $run->fetch_array(MYSQLI_NUM);
+			return $fetch_array[1];
 		}
 
 		public function getStatus(){
@@ -508,6 +536,36 @@
 			$this->status();
 			$_SESSION["char"][5] = $points;
 			return 2;
+		}
+
+		public function getExp($user){
+			$level = $user[3];
+			if($level == 20){
+				return 100;
+				exit();
+			}
+			if($level == 40){
+				return 100;
+				exit();
+			}
+			if($level == 50){
+				return 100;
+				exit();
+			}
+			$sql = "SELECT * FROM level_proj WHERE level='$level'";
+			$run = $this->mysql->query($sql);
+			$fetch_array = $run->fetch_array(MYSQLI_NUM);
+			$exp_t = $fetch_array[1];
+			$exp_p = $user[4];
+
+			if($exp_p == 0){
+				return 0;
+				exit();
+			}
+
+			$exp = ($exp_p * 100)/$exp_t;
+			$exp = substr($exp, 0, 4);
+			return $exp;
 		}
 	}
 ?>

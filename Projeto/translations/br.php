@@ -17,6 +17,8 @@
 	$trans["password_repeat"] = "Repita sua senha";
 	$trans["submit_login"] = "Logar-se";
 	$trans["submit_register"] = "Registrar-se";
+	$trans["reborn"] = "RENASCER";
+	$trans["classup"] = "CLASSE +";
 	$trans["language"] = "Linguagem";
 	$trans["login_error"] = "Usuario e/ou senha incorretas";
 	$trans["register"] = "Registrar-se";
@@ -52,7 +54,13 @@
 	$trans["delete"] = "Deletar";
 	$trans["delete_message"] = "Você realmente quer apagar este personagem?";
 	$trans["yes"] = "Sim";
-	$trans["no"] = "No";
+	$trans["no"] = "Não";
 	$trans["select"] = "Selecionar";
 	$trans["delete"] = "Deletar";
+	$trans["lefthand"] = "Mão Esquerda";
+	$trans["righthand"] = "Mão Direita";
+	$trans["helmet"] = "Capacete";
+	$trans["chestplate"] = "Peitoral";
+	$trans["legs"] = "Pernas";
+	$trans["boots"] = "Botas";
 ?>
