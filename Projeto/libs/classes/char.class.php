@@ -376,6 +376,17 @@
 			$luk = null;
 			$atk = null;
 
+			//getting stats
+			$sql_s = "SELECT * FROM stats_proj WHERE id_char='$id'";
+			$run_s = $this->mysql->query($sql_s);
+			$f_array_s = $run_s->fetch_array(MYSQLI_NUM);
+			$str_s = $f_array_s[2];
+			$vit_s = $f_array_s[3];
+			$dex_s = $f_array_s[4];
+			$agi_s = $f_array_s[5];
+			$int_s = $f_array_s[6];
+			$luk_s = $f_array_s[7];
+
 			//getting equipment
 			$sql = "SELECT * FROM equipment_proj WHERE equip_char_id = '$id'";
 			$run = $this->mysql->query($sql);
@@ -403,12 +414,12 @@
 
 			$sts = $this->runes($status);
 
-			$str = $sts[1];
-			$vit = $sts[2];
-			$dex = $sts[3];
-			$agi = $sts[4];
-			$int = $sts[5];
-			$luk = $sts[6];
+			$str = $sts[1] + $str_s;
+			$vit = $sts[2] + $vit_s;
+			$dex = $sts[3] + $dex_s;
+			$agi = $sts[4] + $agi_s;
+			$int = $sts[5] + $int_s;
+			$luk = $sts[6] + $luk_s;
 
 			$atk = $str * 20;
 			$magic_atk = $int * 20;
@@ -436,7 +447,9 @@
 						   , '22' => $all_dam_red, '7' => $posion, '8' => $double_hit, '12' => $reflect, '13' => $dem_dam_red
 						   , '18' => $mag_dam_red, '19' => $heal_inc);
 			ksort($stats);
+			//$_SESSION["stats"] = null;
 			$_SESSION["stats"] = $stats;
+			return $stats;
 			//$this->runes();
 			//return $str."<br>".$vit."<br>".$dex."<br>".$agi."<br>".$int."<br>".$luk."<br>".$HP;
 		}
@@ -447,8 +460,54 @@
 			return $sts;
 		}
 
-		public function getPoints($attr){
+		public function saveStats($id, $points, $str, $vit, $dex, $agi, $int, $luk){
 			$char = $_SESSION["char"];
+			$points_p = $_SESSION["char"][5];
+			$stats = $this->status();
+			$str_p = $str - $stats[1];
+			$vit_p = $vit - $stats[2];
+			$dex_p = $dex - $stats[3];
+			$agi_p = $agi - $stats[4];
+			$int_p = $int - $stats[5];
+			$luk_p = $luk - $stats[6];
+
+			if(($str_p + $vit_p + $dex_p + $agi_p + $int_p + $luk_p) != ($points_p - $points)){
+				return 5;
+				exit();
+			}
+			if($id != $_SESSION["char"][0]){
+				return 1;
+				exit();
+			}
+
+			$sql_s = "SELECT * FROM stats_proj WHERE id_char='$id'";
+			$run_s = $this->mysql->query($sql_s);
+			$fetch_array = $run_s->fetch_array(MYSQLI_NUM);
+
+			$str_p = $fetch_array[2] + $str_p;
+			$vit_p = $fetch_array[3] + $vit_p;
+			$dex_p = $fetch_array[4] + $dex_p;
+			$agi_p = $fetch_array[5] + $agi_p;
+			$int_p = $fetch_array[6] + $int_p;
+			$luk_p = $fetch_array[7] + $luk_p;
+
+			$sql = "UPDATE char_proj SET c_stats='$points' WHERE c_id='$id'";
+			$run = $this->mysql->query($sql);
+			if(!$run){
+				return 3;
+				exit();
+			}
+			$sql2 = "UPDATE stats_proj SET str='$str_p', vit='$vit_p', dex='$dex_p', agi='$agi_p', `int`='$int_p', luk='$luk_p' WHERE id_char='$id'";
+			$run2 = $this->mysql->query($sql2);
+			if(!$run2){
+				return 4;
+				exit();
+			}
+
+			$this->log("Changing stats, Char: $id", $this->date);
+			$this->status();
+			$_SESSION["char"][5] = $points;
+			return 2;
 		}
 	}
 ?>

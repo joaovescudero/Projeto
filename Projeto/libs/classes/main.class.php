@@ -227,6 +227,39 @@
 			}
 		}
 
+		public function delChar($charid){
+			$user = $_SESSION["user"];
+
+			//getting logged user
+			$u_user = $this->getDates($user, "1");
+
+			//Verifying the char and id
+			$id_user = $user[0];
+			$sql_char_run = $this->mysql->query("SELECT * FROM char_proj WHERE c_id_acc = '$id_user' AND c_id = '$charid'");
+
+			//counting rows
+			$count = $sql_char_run->num_rows;
+
+			if($count == 1){
+				$sql = "DELETE FROM `char_proj` WHERE c_id = '$charid'";
+				$run = $this->mysql->query($sql);
+				if(!$run){
+					return 1;
+					exit();
+				}
+
+				$sql2 = "DELETE FROM `stats_proj` WHERE id_char = '$charid'";
+				$run2 = $this->mysql->query($sql2);
+				if(!$run2){
+					return 1;
+					exit();
+				}
+
+				$this->log("Deleting char ID: $charid, User: $u_user", $this->date);
+				return 2;
+			}
+		}
+
 		//Get all char function
 		public function getChars($user){
 			//clearing the session
@@ -246,7 +279,7 @@
 			}
 
 			//logging about it
-			$this->log("Selecting a char User: $u_user", $this->date);
+			$this->log("Getting chars, User: $u_user", $this->date);
 
 			//setting sessions
 			$_SESSION["allchars"] = $allchars;

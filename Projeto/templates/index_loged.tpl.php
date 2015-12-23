@@ -81,13 +81,14 @@
         </ul>
       </div>
 	  <div id="stats" class="col s12">
-	  	<h5><?php echo $trans["points"]; ?> <b><?php echo $char["charpoints"] ?></b><br>
-	  		<?php echo $trans["statsName"]["strength"]; ?>: <b>54</b><i class="material-icons">add</i><br>
-	  		<?php echo $trans["statsName"]["vitality"]; ?>: <b>54</b><i class="material-icons">add</i><br>
-	  		<?php echo $trans["statsName"]["dexterity"]; ?>: <b>54</b><i class="material-icons">add</i><br>
-	  		<?php echo $trans["statsName"]["agility"]; ?>: <b>54</b><i class="material-icons">add</i><br>
-	  		<?php echo $trans["statsName"]["intelligence"]; ?>: <b>54</b><i class="material-icons">add</i><br>
-	  		<?php echo $trans["statsName"]["lucky"]; ?>: <b>54</b><i class="material-icons">add</i><br>
+	  	<h5><?php echo $trans["points"]; ?> <b id="points"><?php echo $char["charpoints"] ?></b><br>
+	  		<?php echo $trans["statsName"]["strength"]; ?>: <b id="strength"><?php echo $stats[1]; ?></b><a href="#" class="material-icons" onclick="addStr()">add</a><br>
+	  		<?php echo $trans["statsName"]["vitality"]; ?>: <b id="vitality"><?php echo $stats[2]; ?></b><a href="#" class="material-icons" onclick="addVit()">add</a><br>
+	  		<?php echo $trans["statsName"]["dexterity"]; ?>: <b id="dexterity"><?php echo $stats[3]; ?></b><a href="#" class="material-icons" onclick="addDex()">add</a><br>
+	  		<?php echo $trans["statsName"]["agility"]; ?>: <b id="agility"><?php echo $stats[4]; ?></b><a href="#" class="material-icons" onclick="addAgi()">add</a><br>
+	  		<?php echo $trans["statsName"]["intelligence"]; ?>: <b id="intelligence"><?php echo $stats[5]; ?></b><a href="#" class="material-icons" onclick="addInt()">add</a><br>
+	  		<?php echo $trans["statsName"]["lucky"]; ?>: <b id="lucky"><?php echo $stats[6]; ?></b><a href="#" class="material-icons" onclick="addLuk()">add</a><br>
+	  		<a class="waves-effect waves-light btn" id="savestats" onclick="saveStats('<?php echo $char["charid"]; ?>')"><i class="material-icons left">send</i><?php echo $trans["save"]; ?></a>
 	  	</h5>
 	  </div>
 	  <div id="inventory" class="col s12">
@@ -105,10 +106,84 @@
 	  <div id="shop" class="col s12">Test 5</div>
 	</div>
 	<script type="text/javascript">
+		var points = '<?php echo $char["charpoints"] ?>';
+		var strength = '<?php echo $stats[1] ?>';
+		var vitality = '<?php echo $stats[2] ?>';
+		var dexterity = '<?php echo $stats[3] ?>';
+		var agility = '<?php echo $stats[4] ?>';
+		var intelligence = '<?php echo $stats[5] ?>';
+		var lucky = '<?php echo $stats[6] ?>';
+
     	$( document ).ready(function(){
     		$(".button-collapse").sideNav();
     		$(".dropdown-user").dropdown();
+    		$("#savestats").hide();
     	});
+
+    	function addStr(){
+    		if(points !== 0 && points > 0){
+    			strength = parseInt(strength) + 1;
+    			points = points - 1;
+    			$('#points').html(points);
+    			$('#strength').html(strength);
+    			$("#savestats").show();
+    		}
+    	}
+    	function addVit(){
+    		if(points !== 0 && points > 0){
+    			vitality = parseInt(vitality) + 1;
+    			points = points - 1;
+    			$('#points').html(points);
+    			$('#vitality').html(vitality);
+    			$("#savestats").show();
+    		}
+    	}
+    	function addDex(){
+    		if(points !== 0 && points > 0){
+    			dexterity = parseInt(dexterity) + 1;
+    			points = points - 1;
+    			$('#points').html(points);
+    			$('#dexterity').html(dexterity);
+    			$("#savestats").show();
+    		}
+    	}
+    	function addAgi(){
+    		if(points !== 0 && points > 0){
+    			agility = parseInt(agility) + 1;
+    			points = points - 1;
+    			$('#points').html(points);
+    			$('#agility').html(agility);
+    			$("#savestats").show();
+    		}
+    	}
+    	function addInt(){
+    		if(points !== 0 && points > 0){
+    			intelligence = parseInt(intelligence) + 1;
+    			points = points - 1;
+    			$('#points').html(points);
+    			$('#intelligence').html(intelligence);
+    			$("#savestats").show();
+    		}
+    	}
+    	function addLuk(){
+    		if(points !== 0 && points > 0){
+    			lucky = parseInt(lucky) + 1;
+    			points = points - 1;
+    			$('#points').html(points);
+    			$('#lucky').html(lucky);
+    			$("#savestats").show();
+    		}
+    	}
+    	function saveStats(charid){
+    		$.post("libs/savestats.lib.php", { id: charid, points: points, str: strength, vit: vitality, dex: dexterity, agi: agility, inte: intelligence, luk: lucky }, function(result) {
+				console.log(result);
+				if(result==2){
+					location.href="/Projeto/";
+				}else{
+					//location.href="/Projeto/";
+				}
+			});
+    	}
     </script>
 </body>
 </html>

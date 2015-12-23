@@ -49,4 +49,10 @@
 	$trans["chest"] = "Baú";
 	$trans["points"] = "Pontos: ";
 	$trans["save"] = "Salvar";
+	$trans["delete"] = "Deletar";
+	$trans["delete_message"] = "Você realmente quer apagar este personagem?";
+	$trans["yes"] = "Sim";
+	$trans["no"] = "No";
+	$trans["select"] = "Selecionar";
+	$trans["delete"] = "Deletar";
 ?>

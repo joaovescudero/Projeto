@@ -49,4 +49,11 @@
 	$trans["chest"] = "Chest";
 	$trans["points"] = "Points :";
 	$trans["save"] = "Save";
+	$trans["delete"] = "Delete";
+	$trans["delete_message"] = "Do you really wanna delete this character?";
+	$trans["yes"] = "Yes";
+	$trans["no"] = "No";
+	$trans["select"] = "Select";
+	$trans["delete"] = "Delete";
+
 ?>
