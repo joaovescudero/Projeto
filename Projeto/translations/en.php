@@ -69,5 +69,25 @@
 	$trans["chestplate"] = "Chestplate";
 	$trans["legs"] = "Legs";
 	$trans["boots"] = "Boots";
+	$trans["HP"] = "Life";
+	$trans["atk"] = "Attack";
+	$trans["matk"] = "Magic Attack";
+	$trans["catk"] = "Critical Chance";
+	$trans["cdmgatk"] = "Critical Damage";
+	$trans["cmatk"] = "Magic Crital Chance";
+	$trans["cmdmgatk"] = "Magic Critical Damage";
+	$trans["block"] = "Block Rate";
+	$trans["alldmgred"] = "All Damage Reduction";
+	$trans["dmgred"] = "Damage Reduction";
+	$trans["mdmgred"] = "Magic Damage Reduction";
+	$trans["demdmgred"] = "Demoniac Damage Reduction";
+	$trans["cdr"] = "Cool Down Reduction";
+	$trans["hit"] = "Hit Chance";
+	$trans["dodge"] = "Dodge Chance";
+	$trans["poison"] = "Poison Chance";
+	$trans["dhit"] = "Double Hit Chance";
+	$trans["reflect"] = "Reflect Chanc";
+	$trans["hinc"] = "Heal Incress";
+
 
 ?>

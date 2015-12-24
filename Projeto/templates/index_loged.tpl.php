@@ -128,6 +128,32 @@
             </div>
           </div>
         </div>
+        <div class="col s6 m3">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+	             <p><?php echo $trans["HP"].": <b>".$_SESSION["stats"][23]."</b><br>"; ?>
+	             	<?php echo $trans["atk"].": <b>".$_SESSION["stats"][24]."</b><br>"; ?>
+	             	<?php echo $trans["matk"].": <b>".$_SESSION["stats"][25]."</b><br>"; ?>
+	             	<?php echo $trans["catk"].": <b>".$_SESSION["stats"][9]."</b><br>"; ?>
+	             	<?php echo $trans["cdmgatk"].": <b>".$_SESSION["stats"][10]."</b><br>"; ?>
+	             	<?php echo $trans["cmatk"].": <b>".$_SESSION["stats"][16]."</b><br>"; ?>
+	             	<?php echo $trans["cmdmgatk"].": <b>".$_SESSION["stats"][17]."</b><br>"; ?>
+	             	<?php echo $trans["block"].": <b>".$_SESSION["stats"][11]."%</b><br>"; ?>
+	             	<?php echo $trans["alldmgred"].": <b>".$_SESSION["stats"][22]."%</b><br>"; ?>
+	             	<?php echo $trans["dmgred"].": <b>".$_SESSION["stats"][14]."%</b><br>"; ?>
+	             	<?php echo $trans["mdmgred"].": <b>".$_SESSION["stats"][18]."%</b><br>"; ?>
+	             	<?php echo $trans["demdmgred"].": <b>".$_SESSION["stats"][13]."%</b><br>"; ?>
+	             	<?php echo $trans["cdr"].": <b>".$_SESSION["stats"][20]."%</b><br>"; ?>
+	             	<?php echo $trans["hit"].": <b>".$_SESSION["stats"][15]."%</b><br>"; ?>
+	             	<?php echo $trans["dodge"].": <b>".$_SESSION["stats"][21]."%</b><br>"; ?>
+	             	<?php echo $trans["poison"].": <b>".$_SESSION["stats"][7]."%</b><br>"; ?>
+	             	<?php echo $trans["dhit"].": <b>".$_SESSION["stats"][8]."%</b><br>"; ?>
+	             	<?php echo $trans["reflect"].": <b>".$_SESSION["stats"][12]."%</b><br>"; ?>
+	             	<?php echo $trans["hinc"].": <b>".$_SESSION["stats"][19]."%</b><br>"; ?>
+			  	</p>
+            </div>
+          </div>
+        </div>
 	  </div>
 	  <div id="inventory" class="col s12">
 	  	<div class="col s12">
