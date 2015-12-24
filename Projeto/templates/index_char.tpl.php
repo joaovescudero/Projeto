@@ -102,10 +102,10 @@
 				        <div class="input-field col s6">
 				          <select name="charclass" id="charclass">
 						      <option value="" disabled selected><?php echo $trans["chooseClass"]; ?></option>
-						      <option value="warrior"><?php echo $trans["class"]["warrior"]; ?></option>
-						      <option value="mage"><?php echo $trans["class"]["mage"]; ?></option>
-						      <option value="acolyte"><?php echo $trans["class"]["acolyte"]; ?></option>
-						      <option value="thief"><?php echo $trans["class"]["thief"]; ?></option>
+						      <option value="warrior" data-icon="imgs/icons/sword.png" class=""><?php echo $trans["class"]["warrior"]; ?></option>
+						      <option value="mage" data-icon="imgs/icons/staff.png" class=""><?php echo $trans["class"]["mage"]; ?></option>
+						      <option value="acolyte" data-icon="imgs/icons/shield.png" class=""><?php echo $trans["class"]["acolyte"]; ?></option>
+						      <option value="thief" data-icon="imgs/icons/dagger.png" class=""><?php echo $trans["class"]["thief"]; ?></option>
 					      </select>
 				        </div>
 				      </div>
