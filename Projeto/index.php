@@ -19,6 +19,11 @@
 		$main = new main($mysql);
   		$main->getChars($user_session);
 
+  		$bank = $main->getBank($user_session, "0");
+  		$bank_equiped = $main->getBank($user_session, "1");
+
+  		$equips = $_SESSION["itens"];
+
 		$char_session = $_SESSION["char"];
 
 		$charClass = new char($char_session, $mysql);

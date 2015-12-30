@@ -378,7 +378,11 @@
 			$sql = "SELECT * FROM item_proj WHERE item_id='$itemID'";
 			$run = $this->mysql->query($sql);
 			$fetch_array = $run->fetch_array(MYSQLI_NUM);
-			return $fetch_array[1];
+			if(empty($fetch_array)){
+				return "none";
+			}else{
+				return $fetch_array[1];
+			}
 		}
 
 		public function getStatus(){
@@ -395,6 +399,8 @@
 
 		public function status(){
 			$id = $this->char[0];
+			$_SESSION["stats"] = null;
+			$_SESSION["itensFort"] = null;
 			//$this->getStatus();
 			$str = null;
 			$vit = null;
@@ -414,6 +420,26 @@
 			$agi_s = $f_array_s[5];
 			$int_s = $f_array_s[6];
 			$luk_s = $f_array_s[7];
+
+			//getting fortification
+			$sql_f = "SELECT bank_proj.bank_equip_fort FROM equipment_proj, bank_proj WHERE equipment_proj.equip_char_id = '$id' AND (
+					equipment_proj.equip_id_left_hand = bank_proj.bank_item_id OR 
+					equipment_proj.equip_id_left_hand = bank_proj.bank_item_id OR
+					equipment_proj.equip_id_right_hand = bank_proj.bank_item_id OR
+					equipment_proj.equip_id_helmet = bank_proj.bank_item_id OR
+					equipment_proj.equip_id_chestplate = bank_proj.bank_item_id OR
+					equipment_proj.equip_id_legs = bank_proj.bank_item_id OR
+					equipment_proj.equip_id_boots = bank_proj.bank_item_id
+					)";
+			$run_f = $this->mysql->query($sql_f);
+
+			$itensFort = array();
+
+			while($f_assoc_f = $run_f->fetch_assoc()){
+				array_push($itensFort, $f_assoc_f["bank_equip_fort"]);
+			}
+
+			$_SESSION["itensFort"] = $itensFort;
 
 			//getting equipment
 			$sql = "SELECT * FROM equipment_proj WHERE equip_char_id = '$id'";
@@ -475,8 +501,8 @@
 						   , '22' => $all_dam_red, '7' => $posion, '8' => $double_hit, '12' => $reflect, '13' => $dem_dam_red
 						   , '18' => $mag_dam_red, '19' => $heal_inc);
 			ksort($stats);
-			//$_SESSION["stats"] = null;
 			$_SESSION["stats"] = $stats;
+			$stats = $this->itemEffect($f_array);
 			return $stats;
 			//$this->runes();
 			//return $str."<br>".$vit."<br>".$dex."<br>".$agi."<br>".$int."<br>".$luk."<br>".$HP;
@@ -566,6 +592,17 @@
 			$exp = ($exp_p * 100)/$exp_t;
 			$exp = substr($exp, 0, 4);
 			return $exp;
+		}
+
+		public function getItemStats($itemID){
+			$sql = "SELECT * FROM item_proj WHERE item_id='$itemID'";
+			$run = $this->mysql->query($sql);
+			$fetch_array = $run->fetch_array(MYSQLI_NUM);
+			if(empty($fetch_array)){
+				return "none";
+			}else{
+				return $fetch_array;
+			}
 		}
 	}
 ?>

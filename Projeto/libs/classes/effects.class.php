@@ -118,6 +118,7 @@
 					}
 				}
 			}
+			return $_SESSION["stats"];
 		}
 
 		public function runesEffect($runes, $status){
@@ -137,4 +138,6 @@
 			}
 			return $status;
 		}
+
+
 	}

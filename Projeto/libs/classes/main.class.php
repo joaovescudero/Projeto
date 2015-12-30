@@ -318,5 +318,29 @@
 			$_SESSION["char"] = $f_array;
 
 		}
+
+		public function getBank($user, $equiped){
+
+			//getting user id and username
+			$id_user = $this->getDates($user, "0");
+
+			$allitens = array();
+
+			$sql = "SELECT * FROM bank_proj WHERE bank_acc_id = '$id_user' AND bank_equip_set='$equiped'";
+			$run = $this->mysql->query($sql);
+			while($f_array = $run->fetch_array(MYSQLI_NUM)){
+				array_push($allitens, $f_array);
+			}
+
+			return $allitens;
+		}
+
+		public function getItemBank($user, $itemID){
+			$id_user = $this->getDates($user, "0");
+			$sql = "SELECT * FROM bank_proj WHERE bank_item_slot='$itemID' AND bank_acc_id ='$id_user' AND bank_equip_set='0'";
+			$run = $this->mysql->query($sql);
+			$fetch_array = $run->fetch_array(MYSQLI_NUM);
+			return $fetch_array;
+		}
 	}
 ?>

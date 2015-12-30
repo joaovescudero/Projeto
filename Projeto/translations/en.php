@@ -6,12 +6,14 @@
 	$trans["class"] = array("warrior" => "Warrior", "mage" => "Mage", "acolyte" => "Acolyte", "thief" => "Thief", "knight" => "Knight", "wizard" => "Wizard", "priest" => "Priest", "rogue" => "Rogue",
 				   "royal guard" => "Royal Guard", "warlock" => "Warlock", "arch bishop" => "Arch Bishop", "shadow chaser" => "Shadow Chaser");
 	$trans["statsName"] = array("strength" => "Strength", "vitality" => "Vitality", "dexterity" => "Dexterity", "agility" => "Agility", "intelligence" => "Intelligence", "lucky" => "Lucky");
-	$trans["itens"] = array('supreme poisoned dagger' => "Supreme Poisoned Dagger", "double hit dagger" => "Double Hit Dagger", "holy blessed shield" => "Holy Blessed Shield", "holy blessed sword" => "Holy Blessed Sword",
+	$trans["itens"] = array('none' => 'None', 'supreme poisoned dagger' => "Supreme Poisoned Dagger", "double hit dagger" => "Double Hit Dagger", "holy blessed shield" => "Holy Blessed Shield", "holy blessed sword" => "Holy Blessed Sword",
 					"warlock's supreme staff" => "Warlock's Supreme Staff", "warlock's supreme book" => "Warlock's Supreme Book", "god's staff" => "God's Staff", "god's shield" => "God's Shield",
 					"ultimate evade helmet" => "Ultimate Evade Helmet", "ultimate evade chestplate" => "Ultimate Evade Chestplate", "ultimate evade legs" => "Ultimate Evade Legs", "ultimate evade boots" => "Ultimate Evade Boots",
 					"defense supreme helmet" => "Defense Supreme Helmet", "defense supreme chestplate" => "Defense Supreme Chestplate", "defense supreme legs" => "Defense Supreme Legs", "defense supreme boots" => "Defense Supreme Boots",
 					"warlock's powerful helmet" => "Warlock's Powerful Helmet", "warlock's powerful chestplate" => "Warlock's Powerful Chestplate", "warlock's powerful legs" => "Warlock's Powerful Legs", "warlock's powerful boots" => "Warlock's Powerful Boots",
 					"angelic cap" => "Angelic Cap", "angelic robe" => "Angelic Robe", "angelic pants" => "Angelic Pants", "angelic shoes" => "Angelic Shoes");
+	$trans["type"] = array("weapon" => "Weapon", "helmet" => "Helmet", "chestplate" => "Chestplate", "legs" => "Legs", "boots" => "Boots");
+	$trans["classType"] = array("worldwide" => "Worldwide");
 	$trans["xp"] = "XP";
 	$trans["level"] = "Level";
 	$trans["coins"] = "coins";
@@ -23,6 +25,7 @@
 	$trans["password_repeat"] = "Repeat your password";
 	$trans["submit_login"] = "Login";
 	$trans["submit_register"] = "Register";
+	$trans["moreinfo"] = "More Information";
 	$trans["reborn"] = "REBORN";
 	$trans["classup"] = "CLASS +";
 	$trans["language"] = "Language";
@@ -86,7 +89,7 @@
 	$trans["dodge"] = "Dodge Chance";
 	$trans["poison"] = "Poison Chance";
 	$trans["dhit"] = "Double Hit Chance";
-	$trans["reflect"] = "Reflect Chanc";
+	$trans["reflect"] = "Reflect Chance";
 	$trans["hinc"] = "Heal Incress";
 
 

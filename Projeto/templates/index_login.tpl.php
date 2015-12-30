@@ -83,6 +83,7 @@
 				      <button class="btn waves-effect waves-light" type="submit" name="action"><?php echo $trans["submit_login"]; ?>
 					    <i class="material-icons right">send</i>
 					  </button>
+					  <div class="hide-on-med-and-up"><br></div>
 					  <a href="#register" class="btn" onclick="$('#register').show();$('#login').hide();"><?php echo $trans["register"]; ?></a>
 					</div>
 				  </div>
@@ -173,10 +174,11 @@
 			      <div class="row">
 			      	<div class="input-field col s3">
 			        </div>
-			      	<div class="input-field col s6">
+			      	<div class="input-field col s6 align-center">
 				      <button class="btn waves-effect waves-light" type="submit" name="action"><?php echo $trans["submit_register"]; ?>
 					    <i class="material-icons right">send</i>
 					  </button>
+					  <div class="hide-on-med-and-up"><br></div>
 					  <a href="#login" class="btn" onclick="$('#login').show();$('#register').hide();cleanDates();"><?php echo $trans["back"]; ?></a>
 					</div>
 				  </div>
