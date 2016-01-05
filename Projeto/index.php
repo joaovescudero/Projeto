@@ -52,4 +52,3 @@
 
 		include("/templates/index_login.tpl.php");
 	endif;
-?>
