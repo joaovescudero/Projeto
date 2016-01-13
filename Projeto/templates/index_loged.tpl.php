@@ -2,6 +2,7 @@
 	//Index template archive
 	//Created by: Joao Escudero <joaovescudero@gmail.com>
 	//Git: http://github.com/joaovescudero/Projeto
+print_r($_SESSION["itensFort"]);
 ?>
 <!DOCTYPE html>
 <html>
@@ -102,12 +103,12 @@
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
 	             <p><?=$trans["points"]; ?> <b id="points"><?=$char["charpoints"] ?></b><br>
-			  		<?=$trans["statsName"]["strength"]; ?>: <b id="strength"><?=$stats[1]; ?></b><a href="#" class="material-icons" onclick="addStr()">add</a><br>
-			  		<?=$trans["statsName"]["vitality"]; ?>: <b id="vitality"><?=$stats[2]; ?></b><a href="#" class="material-icons" onclick="addVit()">add</a><br>
-			  		<?=$trans["statsName"]["dexterity"]; ?>: <b id="dexterity"><?=$stats[3]; ?></b><a href="#" class="material-icons" onclick="addDex()">add</a><br>
-			  		<?=$trans["statsName"]["agility"]; ?>: <b id="agility"><?=$stats[4]; ?></b><a href="#" class="material-icons" onclick="addAgi()">add</a><br>
-			  		<?=$trans["statsName"]["intelligence"]; ?>: <b id="intelligence"><?=$stats[5]; ?></b><a href="#" class="material-icons" onclick="addInt()">add</a><br>
-			  		<?=$trans["statsName"]["lucky"]; ?>: <b id="lucky"><?=$stats[6]; ?></b><a href="#" class="material-icons" onclick="addLuk()">add</a><br>
+			  		<?=$trans["statsName"]["strength"]; ?>: <b id="strength"><?=$stats[1]; ?></b><a href="#" class="material-icons" onclick="addStr()" id="addStats1">add</a><a href="#" class="material-icons red-text" onclick="addStrTen()" id="addStats2">add</a><br>
+			  		<?=$trans["statsName"]["vitality"]; ?>: <b id="vitality"><?=$stats[2]; ?></b><a href="#" class="material-icons" onclick="addVit()" id="addStats3">add</a><a href="#" class="material-icons red-text" onclick="addVitTen()" id="addStats4">add</a><br>
+			  		<?=$trans["statsName"]["dexterity"]; ?>: <b id="dexterity"><?=$stats[3]; ?></b><a href="#" class="material-icons" onclick="addDex()" id="addStats5">add</a><a href="#" class="material-icons red-text" onclick="addDexTen()" id="addStats6">add</a><br>
+			  		<?=$trans["statsName"]["agility"]; ?>: <b id="agility"><?=$stats[4]; ?></b><a href="#" class="material-icons" onclick="addAgi()" id="addStats7">add</a><a href="#" class="material-icons red-text" onclick="addAgiTen()" id="addStats8">add</a><br>
+			  		<?=$trans["statsName"]["intelligence"]; ?>: <b id="intelligence"><?=$stats[5]; ?></b><a href="#" class="material-icons" onclick="addInt()" id="addStats9">add</a><a href="#" class="material-icons red-text" onclick="addIntTen()" id="addStats10">add</a><br>
+			  		<?=$trans["statsName"]["lucky"]; ?>: <b id="lucky"><?=$stats[6]; ?></b><a href="#" class="material-icons" onclick="addLuk()" id="addStats11">add</a><a href="#" class="material-icons red-text" onclick="addLukTen()" id="addStats12">add</a><br>
 			  	</p>
             </div>
             <div class="white-text card-action" id="savestats">
@@ -208,6 +209,20 @@
     		$(".button-collapse").sideNav();
     		$(".dropdown-user").dropdown();
     		$("#savestats").hide();
+            if(points == 0){
+                $("#addStats1").hide();
+                $("#addStats2").hide();
+                $("#addStats3").hide();
+                $("#addStats4").hide();
+                $("#addStats5").hide();
+                $("#addStats6").hide();
+                $("#addStats7").hide();
+                $("#addStats8").hide();
+                $("#addStats9").hide();
+                $("#addStats10").hide();
+                $("#addStats11").hide();
+                $("#addStats12").hide();
+            }
     	});
 
     	function moreInfo(id){
@@ -267,6 +282,60 @@
     		if(points !== 0 && points > 0){
     			lucky = parseInt(lucky) + 1;
     			points = points - 1;
+    			$('#points').html(points);
+    			$('#lucky').html(lucky);
+    			$("#savestats").show();
+    		}
+    	}
+        function addStrTen(){
+    		if(points !== 0 && points > 10){
+    			strength = parseInt(strength) + 1;
+    			points = points - 1;
+    			$('#points').html(points);
+    			$('#strength').html(strength);
+    			$("#savestats").show();
+    		}
+    	}
+    	function addVitTen(){
+    		if(points !== 0 && points > 10){
+    			vitality = parseInt(vitality) + 10;
+    			points = points - 10;
+    			$('#points').html(points);
+    			$('#vitality').html(vitality);
+    			$("#savestats").show();
+    		}
+    	}
+    	function addDexTen(){
+    		if(points !== 0 && points > 10){
+    			dexterity = parseInt(dexterity) + 10;
+    			points = points - 10;
+    			$('#points').html(points);
+    			$('#dexterity').html(dexterity);
+    			$("#savestats").show();
+    		}
+    	}
+    	function addAgiTen(){
+    		if(points !== 0 && points > 10){
+    			agility = parseInt(agility) + 10;
+    			points = points - 10;
+    			$('#points').html(points);
+    			$('#agility').html(agility);
+    			$("#savestats").show();
+    		}
+    	}
+    	function addIntTen(){
+    		if(points !== 0 && points > 10){
+    			intelligence = parseInt(intelligence) + 10;
+    			points = points - 10;
+    			$('#points').html(points);
+    			$('#intelligence').html(intelligence);
+    			$("#savestats").show();
+    		}
+    	}
+    	function addLukTen(){
+    		if(points !== 0 && points > 10){
+    			lucky = parseInt(lucky) + 10;
+    			points = points - 10;
     			$('#points').html(points);
     			$('#lucky').html(lucky);
     			$("#savestats").show();
