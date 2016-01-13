@@ -1,4 +1,8 @@
 <?php
+	//Get item stats lib archive
+	//Created by: Joao Escudero <joaovescudero@gmail.com>
+	//Git: http://github.com/joaovescudero/Projeto
+
 	require_once("classes/char.class.php");
 
 	if(!empty($_GET["lang"]) || isset($_GET["lang"]) ){
