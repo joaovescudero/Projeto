@@ -17,4 +17,3 @@
 	$char = new char($_SESSION["char"], $mysql);
 
 	echo $char->saveStats($id, $points, $str, $vit, $dex, $agi, $int, $luk);
-?>
