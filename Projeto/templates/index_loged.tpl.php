@@ -2,7 +2,6 @@
 	//Index template archive
 	//Created by: Joao Escudero <joaovescudero@gmail.com>
 	//Git: http://github.com/joaovescudero/Projeto
-print_r($_SESSION["itensFort"]);
 ?>
 <!DOCTYPE html>
 <html>
@@ -288,7 +287,7 @@ print_r($_SESSION["itensFort"]);
     		}
     	}
         function addStrTen(){
-    		if(points !== 0 && points > 10){
+    		if(points !== 0 && points >= 10){
     			strength = parseInt(strength) + 1;
     			points = points - 1;
     			$('#points').html(points);
@@ -297,7 +296,7 @@ print_r($_SESSION["itensFort"]);
     		}
     	}
     	function addVitTen(){
-    		if(points !== 0 && points > 10){
+    		if(points !== 0 && points >= 10){
     			vitality = parseInt(vitality) + 10;
     			points = points - 10;
     			$('#points').html(points);
@@ -306,7 +305,7 @@ print_r($_SESSION["itensFort"]);
     		}
     	}
     	function addDexTen(){
-    		if(points !== 0 && points > 10){
+    		if(points !== 0 && points >= 10){
     			dexterity = parseInt(dexterity) + 10;
     			points = points - 10;
     			$('#points').html(points);
@@ -315,7 +314,7 @@ print_r($_SESSION["itensFort"]);
     		}
     	}
     	function addAgiTen(){
-    		if(points !== 0 && points > 10){
+    		if(points !== 0 && points >= 10){
     			agility = parseInt(agility) + 10;
     			points = points - 10;
     			$('#points').html(points);
@@ -324,7 +323,7 @@ print_r($_SESSION["itensFort"]);
     		}
     	}
     	function addIntTen(){
-    		if(points !== 0 && points > 10){
+    		if(points !== 0 && points >= 10){
     			intelligence = parseInt(intelligence) + 10;
     			points = points - 10;
     			$('#points').html(points);
@@ -333,7 +332,7 @@ print_r($_SESSION["itensFort"]);
     		}
     	}
     	function addLukTen(){
-    		if(points !== 0 && points > 10){
+    		if(points !== 0 && points >= 10){
     			lucky = parseInt(lucky) + 10;
     			points = points - 10;
     			$('#points').html(points);

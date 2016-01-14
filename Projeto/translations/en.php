@@ -10,7 +10,7 @@
 					"warlock's supreme staff" => "Warlock's Supreme Staff", "warlock's supreme book" => "Warlock's Supreme Book", "god's staff" => "God's Staff", "god's shield" => "God's Shield",
 					"ultimate evade helmet" => "Ultimate Evade Helmet", "ultimate evade chestplate" => "Ultimate Evade Chestplate", "ultimate evade legs" => "Ultimate Evade Legs", "ultimate evade boots" => "Ultimate Evade Boots",
 					"defense supreme helmet" => "Defense Supreme Helmet", "defense supreme chestplate" => "Defense Supreme Chestplate", "defense supreme legs" => "Defense Supreme Legs", "defense supreme boots" => "Defense Supreme Boots",
-					"warlock's powerful helmet" => "Warlock's Powerful Helmet", "warlock's powerful chestplate" => "Warlock's Powerful Chestplate", "warlock's powerful legs" => "Warlock's Powerful Legs", "warlock's powerful boots" => "Warlock's Powerful Boots",
+					"warlock's powerful helmet" => "Warlock's Powerful Helmet", "warlock's powerful robe" => "Warlock's Powerful Robe", "warlock's powerful legs" => "Warlock's Powerful Legs", "warlock's powerful boots" => "Warlock's Powerful Boots",
 					"angelic cap" => "Angelic Cap", "angelic robe" => "Angelic Robe", "angelic pants" => "Angelic Pants", "angelic shoes" => "Angelic Shoes");
 	$trans["type"] = array("weapon" => "Weapon", "helmet" => "Helmet", "chestplate" => "Chestplate", "legs" => "Legs", "boots" => "Boots");
 	$trans["classType"] = array("worldwide" => "Worldwide");
