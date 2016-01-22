@@ -28,6 +28,8 @@
 	$trans["moreinfo"] = "Mais Informações";
 	$trans["reborn"] = "RENASCER";
 	$trans["classup"] = "CLASSE +";
+	$trans["classchange"] = "Mudar sua classe";
+    $trans["levelup"] = "SUBIU DE NÍVEL";
 	$trans["language"] = "Linguagem";
 	$trans["login_error"] = "Usuario e/ou senha incorretas";
 	$trans["register"] = "Registrar-se";

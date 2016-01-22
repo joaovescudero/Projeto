@@ -51,9 +51,11 @@
 			$level = $this->char[3];
 			$exp = $this->char[4];
 			$stats = $this->char[5];
+            $reborns = $this->char[6];
 
 			//verifying if it isn't level 50
 			if($level == 50){
+                return 3;
 				exit;
 			}
 
@@ -64,7 +66,7 @@
 			$fnl_array = $n_run->fetch_array(MYSQLI_NUM);
 
 			//verifying level
-			if($level == 20 || $level == 40){
+			if(($level == 20 || $level == 40) && !($class == "royal guard" || $class == "warlock" || $class == "arch bishop" || $class == "shadow chaser")){
 				$this->classUP();
 				return 2;
 				exit;
@@ -79,13 +81,13 @@
 
 				//adding stats points
 				if($n_level <= 20){
-					$n_stats = $stats + 3;
+					$n_stats = $stats + (3  * ($reborns + 1));
 				}
 				elseif($n_level >= 21 AND $n_level <= 40){
-					$n_stats = $stats + 4;
+					$n_stats = $stats + (4  * ($reborns + 1));
 				}
 				elseif($n_level >= 41){
-					$n_stats = $stats + 6;
+					$n_stats = $stats + (6  * ($reborns + 1));
 				}
 
 				if($n_level == 50){
@@ -93,7 +95,8 @@
 				}
 
 				if($n_level >= 51){
-					exit;
+                    return 3;
+                    exit;
 				}
 
 				if($class == "royal guard" || $class == "warlock" || $class == "arch bishop" || $class == "shadow chaser"){
@@ -104,6 +107,11 @@
 					}
 				}
 
+
+                if($reborns != 0){
+                    $n_stats = $n_stats;
+                }
+
 				//saving the new level and exp
 				$sql = "UPDATE char_proj SET c_level = '$n_level', c_exp = '$n_exp', c_stats = '$n_stats' WHERE c_id='$id'";
 				$run = $this->mysql->query($sql);
@@ -113,7 +121,10 @@
 
 				return 1;
 				exit;
-			}
+			}else{
+                return 4;
+                exit;
+            }
 		}
 
 		public function classUP(){
@@ -125,7 +136,7 @@
 			$exp = $this->char[4];
 
 			//if was reborned
-			if($class == "royal guard" || $class == "warlock" || $class == "arch bishop" || $class == "shadow chaser"){
+			if(($class == "royal guard" || $class == "warlock" || $class == "arch bishop" || $class == "shadow chaser") && ($level == 20 || $level == 40)){
 				$n_level = $level + 1;
 				//changing level
 		        $sql = "UPDATE char_proj SET c_level = '$n_level' WHERE c_id='$id'";
@@ -202,6 +213,8 @@
 				}
 			}
 
+            return 1;
+
 			//saving log
 			$this->log("Char class up, level: $n_level, char: $id", $this->date);
 		}
@@ -231,10 +244,6 @@
 
 				if($item == 1){
 					return 1;
-					exit();
-				}
-				if($item == 2){
-					return 2;
 					exit();
 				}
 

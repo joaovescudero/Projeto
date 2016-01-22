@@ -2,5 +2,7 @@
 RewriteEngine On
 RewriteRule ^sel-char/([^/]*)$ libs/selchar.lib.php?id=$1 [L]
 RewriteRule ^changeChar$ libs/changeChar.lib.php [L]
+RewriteRule ^changeClass$ libs/changeclass.lib.php [L]
+RewriteRule ^reborn$ libs/rebornChar.lib.php [L]
 RewriteRule ^logout$ libs/logout.lib.php [L]
 </IfModule>

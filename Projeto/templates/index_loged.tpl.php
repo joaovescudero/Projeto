@@ -34,11 +34,7 @@
 		      <ul id="nav-mobile" class="left hide-on-med-and-down">
 		        <li class="charname"><a><?=$char["charname"]; ?></a></li>
 				<li class="charclass"><a><?=$trans["class"][$char["charclass"]]; ?></a></li>
-				<li class="charlevel"><a><?=$char["charlevel"];
-				if((($char["charclass"] == "warrior" || $char["charclass"] == "mage" || $char["charclass"] == "acolyte" || $char["charclass"] == "thief") && $char["charlevel"] == "20") || (($char["charclass"] == "knight" || $char["charclass"] == "wizard" || $char["charclass"] == "priest" || $char["charclass"] == "rogue") && $char["charlevel"] == "40")){
-					echo '<span class="badge white-text teal lighten-2">'.$trans["classup"].'</span>';
-				}
-				if($char["charlevel"] >= 41 && $char["charreborns"] <= 5){echo '<span class="badge white-text teal lighten-2">'.$trans["reborn"].'</span>';} ?></a></li>
+				<li class="charlevel"><a><?=$char["charlevel"].$badge?></a></li>
 				<li class="charexperience"><a><?=$char["charexperience"]." ".$trans["xp"]; ?></a></li>
 				<li class="charmoney"><a><?=$char["charmoney"]." ".$trans["coins"]; ?></a></li>
 		      </ul>
@@ -89,11 +85,12 @@
 	 	<div class="col s6 m3">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-	             <p><?=$trans["level"].": <b>".$char["charlevel"]."</b><br>"; ?>
+	             <p><?=$trans["level"].": <b>".$char["charlevel"]."</b><br>"; ?><?=$levelup?>
 			  		<?=$trans["xp"].": <b>".$char["charexperience"]."</b>"; ?>
 			  		<div class="progress" style="width: 50%">
 				      <div class="determinate" style="width: <?=$charClass->getExp($_SESSION["char"]); ?>%"></div>
 				  	</div>
+                    <?=$classchange?>
 			  	</p>
             </div>
           </div>
@@ -289,7 +286,7 @@
         function addStrTen(){
     		if(points !== 0 && points >= 10){
     			strength = parseInt(strength) + 10;
-    			points = points - 1;
+    			points = points - 10;
     			$('#points').html(points);
     			$('#strength').html(strength);
     			$("#savestats").show();
