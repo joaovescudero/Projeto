@@ -288,7 +288,7 @@
     	}
         function addStrTen(){
     		if(points !== 0 && points >= 10){
-    			strength = parseInt(strength) + 1;
+    			strength = parseInt(strength) + 10;
     			points = points - 1;
     			$('#points').html(points);
     			$('#strength').html(strength);

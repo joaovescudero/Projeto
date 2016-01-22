@@ -465,7 +465,8 @@
 			}
 
 			$status = array('1' => $str, '2' => $vit, '3' => $dex, '4' => $agi, '5' => $int, '6' => $luk);
-
+            
+            $status = $this->fortEffect($itensFort, $status);
 			$sts = $this->runes($status);
 
 			$str = $sts[1] + $str_s;

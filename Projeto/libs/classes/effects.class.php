@@ -139,5 +139,17 @@
 			return $status;
 		}
 
-
+        public function fortEffect($fort, $status){
+            for($i=0;$i<=5;$i++){
+				$fort_id = $fort[$i];
+				if($fort_id != "" AND $fort_id != "0"){
+                    $fort_lvl = $fort[$i];
+                    $fort_q = $fort_lvl * 0.008;
+					for($c=1;$c<=6;$c++){
+                        $status[$c] = $status[$c] + ($status[$c] * $fort_q);
+                    }
+				}
+			}
+			return $status;
+        }
 	}
