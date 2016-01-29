@@ -52,7 +52,7 @@
         }
 		if($char["charlevel"] >= 41 && $char["charreborns"] <= 5){
             $badge = '<span class="badge white-text teal lighten-2">'.$trans["reborn"].'</span>';
-            $classchange = '<h6><a class="waves-effect waves-light btn-large" href="reborn">'.$trans["reborn"].'</a></h6>';
+            $classchange = '<h6><a class="waves-effect waves-light btn-large" onClick="reborn('.$char["charid"].');">'.$trans["reborn"].'</a></h6>';
         }
 
 		include("/templates/index_loged.tpl.php");

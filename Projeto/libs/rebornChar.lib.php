@@ -11,6 +11,5 @@
         $char->selectChar($_SESSION["user"], $_SESSION["char"][0]);
         $char = new char($_SESSION["char"],$mysql);
         $char->status();
+        echo 2;
     }
-
-    header("Location: index.php");

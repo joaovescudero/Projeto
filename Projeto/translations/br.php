@@ -93,4 +93,5 @@
 	$trans["dhit"] = "Chance de Dano Duplo";
 	$trans["reflect"] = "Chance de Refletir";
 	$trans["hinc"] = "Aumento da Cura";
+    $trans["reborn_message"] = "Quanto você renasce, você ganha:<ul><li>Uma arma suprema de sua class, sem nível de restrição.</li><li>Mais pontos de status por nível.</li><li>Você ganha pontos de status.</li><li>Você premanesce com seus pontos de status.</li></ul><br>E o que você perde:<ul><li>Somente seu nível.</li></ul>";
 ?>

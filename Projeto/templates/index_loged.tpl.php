@@ -153,38 +153,30 @@
         </div>
 	  </div>
 	  <div id="inventory" class="col s12">
-	  	<div class="col s12">
-	        <ul class="tabs">
-	          <li class="tab col s3"><a class="active" href="#character"><?=$trans["character"]; ?></a></li>
-	          <li class="tab col s3"><a href="#chest"><?=$trans["chest"]; ?></a></li>
-	        </ul>
-      	</div>
-      	<div id="character" class="col s12 center-align">
-      		<br>
-			<?php
-				$count = count($bank) - 1;
-				for($i=0;$i<=$count;$i++){
-			?>
-				<div class="col s3">
-					<a class='dropdown-button btn' href='#' data-activates='dropdown<?=$i?>'><?=$trans["itens"][$charClass->getItemName($bank[$i][1])]?> +<?=$bank[$i][5]?></a>
-					<ul id='dropdown<?=$i; ?>' class='dropdown-content'>
-						<li><a><?=$trans["itens"][$charClass->getItemStats($bank[$i][1])[1]]?> +<?=$bank[$i][5]?></a></li>
-						<li><a><?=$trans["type"][$charClass->getItemStats($bank[$i][1])[5]]; ?></a></li>
-						<li><a><?=$trans["class"][$charClass->getItemStats($bank[$i][1])[2]]; ?></a></li>
-						<li><a><?=$charClass->getItemStats($bank[$i][1])[3]; ?></a></li>
-						<li class="divider"></li>
-						<li><a href="#!" onclick="moreInfo(<?=$bank[$i][2]?>);"><?=$trans["moreinfo"]; ?></a></li>
-					</ul>
-				</div>
-			<?php
-					if(is_int($i/3) && $i != 0){
-						echo "<br><br><br>";
-					}
-				}
-			?>
-    	</div>
-	  	<div id="chest" class="col s12">Test 3</div>
-	  </div>
+	  	<div class="col s12 center-align">
+            <br>
+            <?php
+                $count = count($bank) - 1;
+                for($i=0;$i<=$count;$i++){
+            ?>
+                <div class="col s3">
+                    <a class='dropdown-button btn' href='#' data-activates='dropdown<?=$i?>'><?=$trans["itens"][$charClass->getItemName($bank[$i][1])]?> +<?=$bank[$i][5]?></a>
+                    <ul id='dropdown<?=$i; ?>' class='dropdown-content'>
+                        <li><a><?=$trans["itens"][$charClass->getItemStats($bank[$i][1])[1]]?> +<?=$bank[$i][5]?></a></li>
+                        <li><a><?=$trans["type"][$charClass->getItemStats($bank[$i][1])[5]]; ?></a></li>
+                        <li><a><?=$trans["class"][$charClass->getItemStats($bank[$i][1])[2]]; ?></a></li>
+                        <li><a><?=$charClass->getItemStats($bank[$i][1])[3]; ?></a></li>
+                        <li class="divider"></li>
+                        <li><a href="#!" onclick="moreInfo(<?=$bank[$i][2]?>);"><?=$trans["moreinfo"]; ?></a></li>
+                    </ul>
+                </div>
+            <?php
+                    if(is_int($i/3) && $i != 0){
+                        echo "<br><br><br>";
+                    }
+                }
+            ?>
+        </div>
 	  <div id="skills" class="col s12">Test 3</div>
 	  <div id="guild" class="col s12">Test 4</div>
 	  <div id="shop" class="col s12">Test 5</div>
@@ -228,6 +220,26 @@
 				$('#modal1').openModal();
 			});
     	}
+
+        vcharid = null;
+
+        function reborn(charid){
+    		vcharid = null;
+    		vcharid = charid;
+            $('#modal1').html('<div class="modal-content"><h4><?php echo $trans["reborn"]; ?></h4><p><?php echo $trans["reborn_message"]; ?></p></div><div class="modal-footer"><a href="#" class="modal-action modal-close waves-effect waves-green btn-flat" onClick="rebornbtn()"><?php echo $trans["reborn"]; ?></a><a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat"><?php echo $trans["no"]; ?></a></div>');
+            $('#modal1').openModal();
+    	}
+
+        function rebornbtn(){
+            $.post("libs/rebornChar.lib.php", { charid: vcharid }, function(result) {
+				console.log(result);
+				if(result==2){
+					location.href="/Projeto/";
+				}else{
+					location.href="/Projeto/";
+				}
+			});
+        }
 
     	function addStr(){
     		if(points !== 0 && points > 0){

@@ -12,7 +12,6 @@
 	//creating effetcs class
 	class effects extends main {
 		public function Effect($stats ,$effectID, $q){
-			//dexterity
 			if($effectID >= "1" AND $effectID <= "6"){
 				$perc = $q / 100;
 				$p = $perc * $stats[$effectID];

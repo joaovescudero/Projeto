@@ -93,6 +93,6 @@
 	$trans["dhit"] = "Double Hit Chance";
 	$trans["reflect"] = "Reflect Chance";
 	$trans["hinc"] = "Heal Incress";
-
+    $trans["reborn_message"] = "When you reborn, you recive:<ul><li>A Ultimate Weapon for your class, without level restriction.</li><li>More status points per level.</li><li>You gain when you reborn.</li><li>You stay with all of your status.</li></ul><br>And what you lose:<ul><li>Just your level.</li></ul>";
 
 ?>
