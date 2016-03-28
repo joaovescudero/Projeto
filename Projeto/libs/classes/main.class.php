@@ -12,12 +12,11 @@
 	//Require configuration, database and logger file
 	require_once("logger.class.php");
 
-	//starting main class
+	
 	class main extends Logger {
 		public $date = null;
 		public $mysql = null;
-
-		//Get the DATETIME
+		
 		public function __construct($mysql){
 
 			$date = date("Y-m-d H:i:s");
@@ -52,7 +51,7 @@
 			$date = htmlspecialchars($this->mysql->real_escape_string($date));
 			return $date;
 		}
-
+		
 		public function changeBirth($birth){
 			$ex = explode(" ", $birth);
 			$day = $ex[0];
@@ -62,7 +61,18 @@
 			return $day."/".$month."/".$year;
 		}
 
-		//Register function
+		/**
+		 * Register function
+		 *
+		 * @param  string $email    user email
+		 * @param  string $username user username
+		 * @param  string $password user password
+		 * @param  string $birthday user birthday
+		 * @param  string $secQuest user security question
+		 * @param  string $secAns   user security answer
+		 *
+		 * @return boolean           
+		 */
 		public function register($email, $username, $password, $birthday, $secQuest, $secAns){
 
 			//Checking if user and password are empty
