@@ -21,3 +21,5 @@
 	$pass = "";
 	//Database
 	$db = "projeto";
+	//Suffix
+	$suffix = "projeto";

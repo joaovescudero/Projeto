@@ -243,7 +243,7 @@
     			var birthday = $("#birthday").val();
     			var secQuest = $("#secQuest").val();
     			var secAns = $("#secAns").val();
-    			if(email === "" && login === "" && password === "" && birthday === "" && secQuest === "" && secAns === ""){
+    			if(email === "" || login === "" || password === "" || birthday === "" || secQuest === "" || secAns === ""){
 	    			$("#progressreg").hide();
 					Materialize.toast('<?php echo $trans["register_error_blank"]; ?>', 4000);
 	    		}else{
