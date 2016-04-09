@@ -13,3 +13,4 @@
 	if (!$mysql) {
 		printf("Can't connect to $host. Error: %s\n", mysqli_connect_error());
 	}
+	

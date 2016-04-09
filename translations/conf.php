@@ -16,3 +16,4 @@
 	}
 
 	include("translations/".$lang.".php");
+	
