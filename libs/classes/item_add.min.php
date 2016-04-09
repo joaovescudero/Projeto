@@ -7,7 +7,7 @@
 	//session_start();
 	
 	//Require configuration, database and logger file
-	require_once("main.class.php");
+	include("main.class.php");
 	$m = new main($mysql);
 
 	if(isset($_POST["itemid"])){
@@ -48,7 +48,7 @@
 			$effect = $effect.$eff4.",".$eff4porc.";";
 		}
 
-		$sql = "INSERT INTO item_proj(item_id, item_name, item_class, item_nvlmin, item_type, item_slot, item_str, item_vit, item_dex, item_agi, item_int, item_luk, item_effect)
+		$sql = "INSERT INTO item_$this->suffix(item_id, item_name, item_class, item_nvlmin, item_type, item_slot, item_str, item_vit, item_dex, item_agi, item_int, item_luk, item_effect)
 				VALUES ('$item_id', '$item_name', '$item_class', '$item_lvlmin', '$item_type', '$item_slot', '$item_str', '$item_vit', '$item_dex', '$item_agi', '$item_int', '$item_luk', '$effect')";
 		$run = $m->mysql->query($sql);
 
@@ -103,7 +103,7 @@ item effect 1:
 <select name="eff1">
 	<option value="0">none</option>
 	<?php
-	$sql = "SELECT * FROM status_proj";
+	$sql = "SELECT * FROM status_$this->suffix";
 	$run = $m->mysql->query($sql);
 	while ($f = $run->fetch_assoc()) {
 		echo '<option value="'.$f["status_id"].'">'.$f["status_name"].'</option>';
@@ -116,7 +116,7 @@ item effect 2:
 <select name="eff2">
 	<option value="0">none</option>
 	<?php
-	$sql = "SELECT * FROM status_proj";
+	$sql = "SELECT * FROM status_$this->suffix";
 	$run = $m->mysql->query($sql);
 	while ($f = $run->fetch_assoc()) {
 		echo '<option value="'.$f["status_id"].'">'.$f["status_name"].'</option>';
@@ -129,7 +129,7 @@ item effect 3:
 <select name="eff3">
 	<option value="0">none</option>
 	<?php
-	$sql = "SELECT * FROM status_proj";
+	$sql = "SELECT * FROM status_$this->suffix";
 	$run = $m->mysql->query($sql);
 	while ($f = $run->fetch_assoc()) {
 		echo '<option value="'.$f["status_id"].'">'.$f["status_name"].'</option>';
@@ -142,7 +142,7 @@ item effect 4:
 <select name="eff4">
 	<option value="0">none</option>
 	<?php
-	$sql = "SELECT * FROM status_proj";
+	$sql = "SELECT * FROM status_$this->suffix";
 	$run = $m->mysql->query($sql);
 	while ($f = $run->fetch_assoc()) {
 		echo '<option value="'.$f["status_id"].'">'.$f["status_name"].'</option>';

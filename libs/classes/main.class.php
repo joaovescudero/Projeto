@@ -10,18 +10,18 @@
 	date_default_timezone_set('America/Sao_Paulo');
 	
 	//Require configuration, database and logger file
-	require_once("logger.class.php");
+	include("logger.class.php");
 
 	
 	class main extends Logger {
 		public $date = null;
 		public $mysql = null;
+		public $suffix = null;
 		
 		public function __construct($mysql){
-
+			$this->suffix = $_SESSION["suffix"];
 			$date = date("Y-m-d H:i:s");
 			$this->date = $date;
-
 			$this->mysql = $mysql;
 
 		}
@@ -35,7 +35,7 @@
 
 		//Verifying user/email exist function
 		public function verDates($email, $user){
-			$query = "SELECT * FROM user_proj WHERE u_email = '$email' OR u_user = '$user'";
+			$query = "SELECT * FROM user_$this->suffix WHERE u_email = '$email' OR u_user = '$user'";
 			$sql_run = $this->mysql->query($query);
 			$count = $sql_run->num_rows;
 
@@ -93,7 +93,7 @@
 				$secQuest = $this->cleanDate($secQuest);
 				$secAns = $this->cleanDate($secAns);
 
-				$query = "INSERT INTO user_proj(u_email, u_user, u_pass, u_birth, u_qseg, u_aseg) VALUES ('$email', '$username', '$e_pass', '$birthday', '$secQuest', '$secAns')";
+				$query = "INSERT INTO user_$this->suffix(u_email, u_user, u_pass, u_birth, u_qseg, u_aseg) VALUES ('$email', '$username', '$e_pass', '$birthday', '$secQuest', '$secAns')";
 				$sql_run = $this->mysql->query($query);
 				if($sql_run):
 					return 1;
@@ -118,7 +118,7 @@
 			$e_pass = $this->encrypt($pass);
 
 			//verifying dates
-			$query = "SELECT * FROM user_proj WHERE u_user = '$user' AND u_pass = '$e_pass'";
+			$query = "SELECT * FROM user_$this->suffix WHERE u_user = '$user' AND u_pass = '$e_pass'";
 			$sql_run = $this->mysql->query($query);
 
 			//verifying if have any mysql errors
@@ -169,13 +169,13 @@
 
 			//Verifying number of characters
 			$id_user = $user[0];
-			$sql_char_run = $this->mysql->query("SELECT c_id_acc FROM char_proj WHERE c_id_acc = '$id_user'");
+			$sql_char_run = $this->mysql->query("SELECT c_id_acc FROM char_$this->suffix WHERE c_id_acc = '$id_user'");
 
 			//counting rows
 			$count = $sql_char_run->num_rows;
 
 			//Verifying name of character
-			$sql_run = $this->mysql->query("SELECT c_name FROM char_proj WHERE c_name = '$name'");
+			$sql_run = $this->mysql->query("SELECT c_name FROM char_$this->suffix WHERE c_name = '$name'");
 
 			//counting rows
 			$fn_array = $sql_run->fetch_array(MYSQLI_NUM);
@@ -190,7 +190,7 @@
 					if($count_char == 0){
 
 						//inserting into DB
-						$sql = "INSERT INTO char_proj(c_name, c_class, c_id_acc) VALUES ('$name', '$class', '$id_user')";
+						$sql = "INSERT INTO char_$this->suffix(c_name, c_class, c_id_acc) VALUES ('$name', '$class', '$id_user')";
 						$sql_run = $this->mysql->query($sql);
 
 						if(!$sql_run){
@@ -203,7 +203,7 @@
 
 						$id_char = $this->mysql->insert_id;
 
-						$sql_attr = "INSERT INTO stats_proj(id_char) VALUES ('$id_char')";
+						$sql_attr = "INSERT INTO stats_$this->suffix(id_char) VALUES ('$id_char')";
 						$run_attr = $this->mysql->query($sql_attr);
 
 						if(!$run_attr){
@@ -245,20 +245,20 @@
 
 			//Verifying the char and id
 			$id_user = $user[0];
-			$sql_char_run = $this->mysql->query("SELECT * FROM char_proj WHERE c_id_acc = '$id_user' AND c_id = '$charid'");
+			$sql_char_run = $this->mysql->query("SELECT * FROM char_$this->suffix WHERE c_id_acc = '$id_user' AND c_id = '$charid'");
 
 			//counting rows
 			$count = $sql_char_run->num_rows;
 
 			if($count == 1){
-				$sql = "DELETE FROM `char_proj` WHERE c_id = '$charid'";
+				$sql = "DELETE FROM `char_$this->suffix` WHERE c_id = '$charid'";
 				$run = $this->mysql->query($sql);
 				if(!$run){
 					return 1;
 					exit();
 				}
 
-				$sql2 = "DELETE FROM `stats_proj` WHERE id_char = '$charid'";
+				$sql2 = "DELETE FROM `stats_$this->suffix` WHERE id_char = '$charid'";
 				$run2 = $this->mysql->query($sql2);
 				if(!$run2){
 					return 1;
@@ -282,7 +282,7 @@
 			$allchars = array();
 
 			//getting char information
-			$sql = "SELECT * FROM char_proj WHERE c_id_acc = '$id_user'";
+			$sql = "SELECT * FROM char_$this->suffix WHERE c_id_acc = '$id_user'";
 			$run = $this->mysql->query($sql);
 			while($f_array = $run->fetch_array(MYSQLI_NUM)){
 				array_push($allchars, $f_array);
@@ -316,7 +316,7 @@
 			$u_user = $this->getDates($user, "1");
 
 			//getting char information
-			$sql = "SELECT * FROM char_proj WHERE c_id_acc = '$id_user' AND c_id = '$char'";
+			$sql = "SELECT * FROM char_$this->suffix WHERE c_id_acc = '$id_user' AND c_id = '$char'";
 			$run = $this->mysql->query($sql);
 			$f_array = $run->fetch_array(MYSQLI_NUM);
 			$char_name = $f_array[1];
@@ -336,7 +336,7 @@
 
 			$allitens = array();
 
-			$sql = "SELECT * FROM bank_proj WHERE bank_acc_id = '$id_user' AND bank_equip_set='$equiped'";
+			$sql = "SELECT * FROM bank_$this->suffix WHERE bank_acc_id = '$id_user' AND bank_equip_set='$equiped'";
 			$run = $this->mysql->query($sql);
 			while($f_array = $run->fetch_array(MYSQLI_NUM)){
 				array_push($allitens, $f_array);
@@ -347,7 +347,7 @@
 
 		public function getItemBank($user, $itemID){
 			$id_user = $this->getDates($user, "0");
-			$sql = "SELECT * FROM bank_proj WHERE bank_item_slot='$itemID' AND bank_acc_id ='$id_user' AND bank_equip_set='0'";
+			$sql = "SELECT * FROM bank_$this->suffix WHERE bank_item_slot='$itemID' AND bank_acc_id ='$id_user' AND bank_equip_set='0'";
 			$run = $this->mysql->query($sql);
 			$fetch_array = $run->fetch_array(MYSQLI_NUM);
 			return $fetch_array;

@@ -13,7 +13,7 @@
 		$exp = $exp * 2;
 		$i_exp =  (int) $exp;
 		echo $i_exp."<br>";
-		$sql = "INSERT INTO level_proj(level, exp) VALUES ('$i', '$i_exp')";
+		$sql = "INSERT INTO level_$this->suffix(level, exp) VALUES ('$i', '$i_exp')";
 		$run = $mysql->query($sql);
 	}
 ?>

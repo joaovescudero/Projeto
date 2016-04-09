@@ -4,7 +4,7 @@
 	//Git: http://github.com/joaovescudero/Projeto
 
 	//Require configuration file
-	require_once("conf.min.php");
+	include("conf.min.php");
 
 	//Connect command
 	$mysql = new mysqli($host, $user, $pass, $db);

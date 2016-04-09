@@ -55,7 +55,7 @@
             $classchange = '<h6><a class="waves-effect waves-light btn-large" onClick="reborn('.$char["charid"].');">'.$trans["reborn"].'</a></h6>';
         }
 
-		include("/templates/index_loged.tpl.php");
+		include("templates/index_loged.tpl.php");
 	elseif(isset($_SESSION["user"]) && !empty($_SESSION["user"])):
 		$user_session = $_SESSION["user"];
 		
@@ -64,12 +64,12 @@
 
 		$user = array("username" => $user_session["u_user"], "useremail" => $user_session["u_email"]);
 
-		include("/templates/index_char.tpl.php");
+		include("templates/index_char.tpl.php");
 	else:
 
 		if(isset($_POST["user"])){
 			print_r($_POST);
 		}
 
-		include("/templates/index_login.tpl.php");
+		include("templates/index_login.tpl.php");
 	endif;

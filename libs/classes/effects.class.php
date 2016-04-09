@@ -7,7 +7,7 @@
 	//session_start();
 	
 	//Require configuration, database and logger file
-	require_once("main.class.php");
+	include("main.class.php");
 
 	//creating effetcs class
 	class effects extends main {
@@ -102,7 +102,7 @@
 			for($i=1;$i<=6;$i++){
 				$item_id = $itens[$i];
 				if($item_id != ""){
-					$item_sql = "SELECT * FROM item_proj WHERE item_id = '$item_id'";
+					$item_sql = "SELECT * FROM item_$this->suffix WHERE item_id = '$item_id'";
 					$item_run = $this->mysql->query($item_sql);
 					$f_item_array = $item_run->fetch_array(MYSQLI_NUM);
 					if((count($f_item_array)) != 0){
@@ -125,7 +125,7 @@
 			for($i=1;$i<=6;$i++){
 				$rune_id = $i;
 				if($rune_id != 0){
-				  /*$runes_sql = "SELECT * FROM runes_proj WHERE runes_id = '$rune_id'";
+				  /*$runes_sql = "SELECT * FROM runes_$this->suffix WHERE runes_id = '$rune_id'";
 					$runes_run = $this->mysql->query($runes_sql);
 					$f_runes_array = $runes_run->fetch_array(MYSQLI_NUM);
 					if((count($f_runes_array)) != 0){*/

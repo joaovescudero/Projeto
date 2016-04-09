@@ -9,7 +9,7 @@
 	}
 	
 	//Require configuration, database and logger file
-	require_once("effects.class.php");
+	include("effects.class.php");
 
 	//starting char class
 	class char extends effects {
@@ -34,9 +34,11 @@
 		public $crit = null;
 		public $crit_dam = null;
 		public $dodge = null;
+		public $suffix = null;
 
 		//get the char session
 		public function __construct($char, $mysql){
+			$this->suffix = $_SESSION["suffix"];
 			$this->char = $char;
 			$this->mysql = $mysql;
 			$date = date("Y-m-d H:i:s");
@@ -61,7 +63,7 @@
 
 			//getting next level exp
 			$next_level = $level + 1;
-			$n_sql = "SELECT * FROM level_proj WHERE level='$next_level'";
+			$n_sql = "SELECT * FROM level_$this->suffix WHERE level='$next_level'";
 			$n_run = $this->mysql->query($n_sql);
 			$fnl_array = $n_run->fetch_array(MYSQLI_NUM);
 
@@ -113,7 +115,7 @@
                 }
 
 				//saving the new level and exp
-				$sql = "UPDATE char_proj SET c_level = '$n_level', c_exp = '$n_exp', c_stats = '$n_stats' WHERE c_id='$id'";
+				$sql = "UPDATE char_$this->suffix SET c_level = '$n_level', c_exp = '$n_exp', c_stats = '$n_stats' WHERE c_id='$id'";
 				$run = $this->mysql->query($sql);
 
 				//saving log
@@ -139,7 +141,7 @@
 			if(($class == "royal guard" || $class == "warlock" || $class == "arch bishop" || $class == "shadow chaser") && ($level == 20 || $level == 40)){
 				$n_level = $level + 1;
 				//changing level
-		        $sql = "UPDATE char_proj SET c_level = '$n_level' WHERE c_id='$id'";
+		        $sql = "UPDATE char_$this->suffix SET c_level = '$n_level' WHERE c_id='$id'";
 				$run = $this->mysql->query($sql);
 			}
 			//checking level
@@ -149,7 +151,7 @@
 					$n_level = $level + 1;
 			        $n_class = "knight";
 			        //changing class
-			        $sql = "UPDATE char_proj SET c_class = '$n_class', c_level = '$n_level' WHERE c_id='$id'";
+			        $sql = "UPDATE char_$this->suffix SET c_class = '$n_class', c_level = '$n_level' WHERE c_id='$id'";
 					$run = $this->mysql->query($sql);
 				}
 				//checking class
@@ -157,7 +159,7 @@
 					$n_level = $level + 1;
 			        $n_class = "wizard";
 			        //changing class
-			        $sql = "UPDATE char_proj SET c_class = '$n_class', c_level = '$n_level' WHERE c_id='$id'";
+			        $sql = "UPDATE char_$this->suffix SET c_class = '$n_class', c_level = '$n_level' WHERE c_id='$id'";
 					$run = $this->mysql->query($sql);
 				}
 				//checking class
@@ -165,7 +167,7 @@
 					$n_level = $level + 1;
 			        $n_class = "priest";
 			        //changing class
-			        $sql = "UPDATE char_proj SET c_class = '$n_class', c_level = '$n_level' WHERE c_id='$id'";
+			        $sql = "UPDATE char_$this->suffix SET c_class = '$n_class', c_level = '$n_level' WHERE c_id='$id'";
 					$run = $this->mysql->query($sql);
 				}
 				//checking class
@@ -173,7 +175,7 @@
 					$n_level = $level + 1;
 			        $n_class = "rogue";
 			        //changing class
-			        $sql = "UPDATE char_proj SET c_class = '$n_class', c_level = '$n_level' WHERE c_id='$id'";
+			        $sql = "UPDATE char_$this->suffix SET c_class = '$n_class', c_level = '$n_level' WHERE c_id='$id'";
 					$run = $this->mysql->query($sql);
 				}
 			}
@@ -184,7 +186,7 @@
 					$n_level = $level + 1;
 			        $n_class = "royal guard";
 			        //changing class
-			        $sql = "UPDATE char_proj SET c_class = '$n_class', c_level = '$n_level' WHERE c_id='$id'";
+			        $sql = "UPDATE char_$this->suffix SET c_class = '$n_class', c_level = '$n_level' WHERE c_id='$id'";
 					$run = $this->mysql->query($sql);
 				}
 				//checking class
@@ -192,7 +194,7 @@
 					$n_level = $level + 1;
 			        $n_class = "warlock";
 			        //changing class
-			        $sql = "UPDATE char_proj SET c_class = '$n_class', c_level = '$n_level' WHERE c_id='$id'";
+			        $sql = "UPDATE char_$this->suffix SET c_class = '$n_class', c_level = '$n_level' WHERE c_id='$id'";
 					$run = $this->mysql->query($sql);
 				}
 				//checking class
@@ -200,7 +202,7 @@
 					$n_level = $level + 1;
 			        $n_class = "arch bishop";
 			        //changing class
-			        $sql = "UPDATE char_proj SET c_class = '$n_class', c_level = '$n_level' WHERE c_id='$id'";
+			        $sql = "UPDATE char_$this->suffix SET c_class = '$n_class', c_level = '$n_level' WHERE c_id='$id'";
 					$run = $this->mysql->query($sql);
 				}
 				//checking class
@@ -208,7 +210,7 @@
 					$n_level = $level + 1;
 			        $n_class = "shadow chaser";
 					//changing class
-			        $sql = "UPDATE char_proj SET c_class = '$n_class', c_level = '$n_level' WHERE c_id='$id'";
+			        $sql = "UPDATE char_$this->suffix SET c_class = '$n_class', c_level = '$n_level' WHERE c_id='$id'";
 					$run = $this->mysql->query($sql);
 				}
 			}
@@ -247,7 +249,7 @@
 					exit();
 				}
 
-				$sql = "UPDATE char_proj SET c_level = '1', c_exp = '0', c_stats = '$n_stats', c_reborns = '$n_reborns' WHERE c_id='$id'";
+				$sql = "UPDATE char_$this->suffix SET c_level = '1', c_exp = '0', c_stats = '$n_stats', c_reborns = '$n_reborns' WHERE c_id='$id'";
 				$run = $this->mysql->query($sql);
 
 				if(!$run){
@@ -358,7 +360,7 @@
 			$id_acc = $this->char[8];
 
 			//getting bank space
-			$sql = "SELECT * FROM bank_proj WHERE bank_acc_id = '$id_acc'";
+			$sql = "SELECT * FROM bank_$this->suffix WHERE bank_acc_id = '$id_acc'";
 			$run = $this->mysql->query($sql);
 			$num = $run->num_rows;
 
@@ -369,7 +371,7 @@
 
 			//adding item
 			$slot = $num + 1;
-			$sql_add = "INSERT INTO bank_proj(bank_item_id, bank_item_slot, bank_acc_id) VALUES('$item_id', '$slot', '$id_acc')";
+			$sql_add = "INSERT INTO bank_$this->suffix(bank_item_id, bank_item_slot, bank_acc_id) VALUES('$item_id', '$slot', '$id_acc')";
 			$run_add = $this->mysql->query($sql_add);
 			if(!$run_add){
 				return 1;
@@ -384,7 +386,7 @@
 		}
 
 		public function getItemName($itemID){
-			$sql = "SELECT * FROM item_proj WHERE item_id='$itemID'";
+			$sql = "SELECT * FROM item_$this->suffix WHERE item_id='$itemID'";
 			$run = $this->mysql->query($sql);
 			$fetch_array = $run->fetch_array(MYSQLI_NUM);
 			if(empty($fetch_array)){
@@ -420,7 +422,7 @@
 			$atk = null;
 
 			//getting stats
-			$sql_s = "SELECT * FROM stats_proj WHERE id_char='$id'";
+			$sql_s = "SELECT * FROM stats_$this->suffix WHERE id_char='$id'";
 			$run_s = $this->mysql->query($sql_s);
 			$f_array_s = $run_s->fetch_array(MYSQLI_NUM);
 			$str_s = $f_array_s[2];
@@ -431,14 +433,14 @@
 			$luk_s = $f_array_s[7];
 
 			//getting fortification
-			$sql_f = "SELECT bank_proj.bank_equip_fort FROM equipment_proj, bank_proj WHERE equipment_proj.equip_char_id = '$id' AND (
-					equipment_proj.equip_id_left_hand = bank_proj.bank_item_id OR 
-					equipment_proj.equip_id_left_hand = bank_proj.bank_item_id OR
-					equipment_proj.equip_id_right_hand = bank_proj.bank_item_id OR
-					equipment_proj.equip_id_helmet = bank_proj.bank_item_id OR
-					equipment_proj.equip_id_chestplate = bank_proj.bank_item_id OR
-					equipment_proj.equip_id_legs = bank_proj.bank_item_id OR
-					equipment_proj.equip_id_boots = bank_proj.bank_item_id
+			$sql_f = "SELECT bank_$this->suffix.bank_equip_fort FROM equipment_$this->suffix, bank_$this->suffix WHERE equipment_$this->suffix.equip_char_id = '$id' AND (
+					equipment_$this->suffix.equip_id_left_hand = bank_$this->suffix.bank_item_id OR 
+					equipment_$this->suffix.equip_id_left_hand = bank_$this->suffix.bank_item_id OR
+					equipment_$this->suffix.equip_id_right_hand = bank_$this->suffix.bank_item_id OR
+					equipment_$this->suffix.equip_id_helmet = bank_$this->suffix.bank_item_id OR
+					equipment_$this->suffix.equip_id_chestplate = bank_$this->suffix.bank_item_id OR
+					equipment_$this->suffix.equip_id_legs = bank_$this->suffix.bank_item_id OR
+					equipment_$this->suffix.equip_id_boots = bank_$this->suffix.bank_item_id
 					)";
 			$run_f = $this->mysql->query($sql_f);
 
@@ -451,7 +453,7 @@
 			$_SESSION["itensFort"] = $itensFort;
 
 			//getting equipment
-			$sql = "SELECT * FROM equipment_proj WHERE equip_char_id = '$id'";
+			$sql = "SELECT * FROM equipment_$this->suffix WHERE equip_char_id = '$id'";
 			$run = $this->mysql->query($sql);
 			$f_array = $run->fetch_array(MYSQLI_NUM);
 			$_SESSION["itens"] = $f_array;
@@ -459,7 +461,7 @@
 			for($i=0;$i<=7;$i++){
 				$item_id = $f_array[$i];
 				if($item_id != ""){
-					$item_sql = "SELECT * FROM item_proj WHERE item_id = '$item_id'";
+					$item_sql = "SELECT * FROM item_$this->suffix WHERE item_id = '$item_id'";
 					$item_run = $this->mysql->query($item_sql);
 					$f_item_array = $item_run->fetch_array(MYSQLI_NUM);
 					if((count($f_item_array)) != 0){
@@ -544,7 +546,7 @@
 				exit();
 			}
 
-			$sql_s = "SELECT * FROM stats_proj WHERE id_char='$id'";
+			$sql_s = "SELECT * FROM stats_$this->suffix WHERE id_char='$id'";
 			$run_s = $this->mysql->query($sql_s);
 			$fetch_array = $run_s->fetch_array(MYSQLI_NUM);
 
@@ -555,13 +557,13 @@
 			$int_p = $fetch_array[6] + $int_p;
 			$luk_p = $fetch_array[7] + $luk_p;
 
-			$sql = "UPDATE char_proj SET c_stats='$points' WHERE c_id='$id'";
+			$sql = "UPDATE char_$this->suffix SET c_stats='$points' WHERE c_id='$id'";
 			$run = $this->mysql->query($sql);
 			if(!$run){
 				return 3;
 				exit();
 			}
-			$sql2 = "UPDATE stats_proj SET str='$str_p', vit='$vit_p', dex='$dex_p', agi='$agi_p', `int`='$int_p', luk='$luk_p' WHERE id_char='$id'";
+			$sql2 = "UPDATE stats_$this->suffix SET str='$str_p', vit='$vit_p', dex='$dex_p', agi='$agi_p', `int`='$int_p', luk='$luk_p' WHERE id_char='$id'";
 			$run2 = $this->mysql->query($sql2);
 			if(!$run2){
 				return 4;
@@ -588,7 +590,7 @@
 				return 100;
 				exit();
 			}
-			$sql = "SELECT * FROM level_proj WHERE level='$level'";
+			$sql = "SELECT * FROM level_$this->suffix WHERE level='$level'";
 			$run = $this->mysql->query($sql);
 			$fetch_array = $run->fetch_array(MYSQLI_NUM);
 			$exp_t = $fetch_array[1];
@@ -605,7 +607,7 @@
 		}
 
 		public function getItemStats($itemID){
-			$sql = "SELECT * FROM item_proj WHERE item_id='$itemID'";
+			$sql = "SELECT * FROM item_$this->suffix WHERE item_id='$itemID'";
 			$run = $this->mysql->query($sql);
 			$fetch_array = $run->fetch_array(MYSQLI_NUM);
 			if(empty($fetch_array)){

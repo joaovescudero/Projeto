@@ -15,4 +15,4 @@
 		header("Location: #");
 	}
 
-	include("/translations/".$lang.".php");
+	include("translations/".$lang.".php");

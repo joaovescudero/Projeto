@@ -223,8 +223,9 @@
     			var login = $("#user").val();
     			var password = $("#password").val();
     			$.post("libs/login.lib.php", { login: login, pass: password }, function(result) {
+    				console.log(result);
     				if(result==2){
-    						location.href="/Projeto/";
+    						location.href="/";
     						$("#progress").hide();
     					}else{
     						Materialize.toast('<?php echo $trans["login_error"]; ?>', 4000);
@@ -239,7 +240,6 @@
     			var email = $("#email").val();
     			var login = $("#username").val();
     			var password = $("#passwordreg").val();
-    			//var passwordrepeat = $("#passwordrepeat").val();
     			var birthday = $("#birthday").val();
     			var secQuest = $("#secQuest").val();
     			var secAns = $("#secAns").val();

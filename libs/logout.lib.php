@@ -7,4 +7,4 @@
 		session_start();
 	}
 	session_destroy();
-	header("Location: ../Projeto/");
+	header("Location: /");
